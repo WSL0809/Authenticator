@@ -10,7 +10,7 @@ jobs:
     name: Process new i18n strings
     
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v5
       
       - run: bash scripts/i18n.sh
         env:
