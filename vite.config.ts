@@ -14,6 +14,7 @@ export default defineConfig({
   plugins: [vue(), svgLoader()],
   define: {
     global: "globalThis",
+    "process.env.NODE_ENV": JSON.stringify("production"),
   },
   resolve: {
     alias: {
