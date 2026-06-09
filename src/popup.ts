@@ -45,16 +45,30 @@ async function init() {
     },
   });
 
-  app.config.globalProperties.i18n = await loadI18nMessages();
+  const [
+    i18n,
+    accountsModule,
+    advisorModule,
+    backupModule,
+    menuModule,
+  ] = await Promise.all([
+    loadI18nMessages(),
+    new Accounts().getModule(),
+    new Advisor().getModule(),
+    new Backup().getModule(),
+    new Menu().getModule(),
+  ]);
+
+  app.config.globalProperties.i18n = i18n;
 
   // State
   const store = createStore({
     modules: {
-      accounts: await new Accounts().getModule(),
-      advisor: await new Advisor().getModule(),
-      backup: await new Backup().getModule(),
+      accounts: accountsModule,
+      advisor: advisorModule,
+      backup: backupModule,
       currentView: new CurrentView().getModule(),
-      menu: await new Menu().getModule(),
+      menu: menuModule,
       notification: new Notification().getModule(),
       qr: new Qr().getModule(),
       style: new Style().getModule(),

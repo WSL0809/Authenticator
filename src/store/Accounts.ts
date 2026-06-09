@@ -11,7 +11,10 @@ import { DataType } from "../models/otp";
 const LegacyEncryption = "LegacyEncryption";
 export class Accounts implements Module {
   async getModule() {
-    const cachedKeyInfo = await this.getCachedKeyInfo();
+    const [cachedKeyInfo, keys] = await Promise.all([
+      this.getCachedKeyInfo(),
+      BrowserStorage.getKeys(),
+    ]);
     const encryption: Map<string, EncryptionInterface> = new Map();
     if (cachedKeyInfo.cachedKeyId) {
       encryption.set(
@@ -22,10 +25,12 @@ export class Accounts implements Module {
         )
       );
     }
-    const shouldShowPassphrase = await EntryStorage.hasEncryptionKey();
-    const entries = shouldShowPassphrase ? [] : await this.getEntries();
-
-    await UserSettings.updateItems();
+    const shouldShowPassphrase = isOldKey(keys) || keys.length !== 0;
+    const [entries, siteName] = await Promise.all([
+      shouldShowPassphrase ? Promise.resolve([]) : this.getEntries(),
+      getSiteName(),
+      UserSettings.updateItems(),
+    ]);
 
     return {
       state: {
@@ -39,11 +44,11 @@ export class Accounts implements Module {
         sectorOffset: 0, // Offset in seconds for animations
         second: 0, // Offset in seconds for math
         filter: true,
-        siteName: await getSiteName(),
+        siteName,
         showSearch: false,
         exportData: await EntryStorage.getExport(entries),
         exportEncData: await EntryStorage.getExport(entries, true),
-        keys: await BrowserStorage.getKeys(),
+        keys,
         wrongPassword: false,
         initComplete: false,
       },

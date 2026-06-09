@@ -59,11 +59,10 @@ const insightsData: AdvisorInsightInterface[] = [
 ];
 
 export class Advisor implements Module {
-  async getModule() {
-    await UserSettings.updateItems();
+  getModule() {
     return {
       state: {
-        insights: await this.getInsights(),
+        insights: [],
         ignoreList: UserSettings.items.advisorIgnoreList || [],
       },
       mutations: {

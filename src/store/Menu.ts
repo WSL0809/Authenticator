@@ -5,6 +5,25 @@ import { ManagedStorage } from "../models/storage";
 export class Menu implements Module {
   async getModule() {
     await UserSettings.updateItems();
+    const [
+      backupDisabled,
+      exportDisabled,
+      enforcePassword,
+      enforceAutolock,
+      storageArea,
+      feedbackURL,
+      passwordPolicy,
+      passwordPolicyHint,
+    ] = await Promise.all([
+      ManagedStorage.get("disableBackup", false),
+      ManagedStorage.get("disableExport", false),
+      ManagedStorage.get("enforcePassword", false),
+      ManagedStorage.get("enforceAutolock", false),
+      ManagedStorage.get<"sync" | "local">("storageArea"),
+      ManagedStorage.get<string>("feedbackURL"),
+      ManagedStorage.get<string>("passwordPolicy"),
+      ManagedStorage.get<string>("passwordPolicyHint"),
+    ]);
 
     const menuState = {
       state: {
@@ -15,16 +34,14 @@ export class Menu implements Module {
         enableContextMenu: UserSettings.items.enableContextMenu === true,
         theme: UserSettings.items.theme || (isSafari ? "flat" : "normal"),
         autolock: Number(UserSettings.items.autolock) || 30,
-        backupDisabled: await ManagedStorage.get("disableBackup", false),
-        exportDisabled: await ManagedStorage.get("disableExport", false),
-        enforcePassword: await ManagedStorage.get("enforcePassword", false),
-        enforceAutolock: await ManagedStorage.get("enforceAutolock", false),
-        storageArea: await ManagedStorage.get<"sync" | "local">("storageArea"),
-        feedbackURL: await ManagedStorage.get<string>("feedbackURL"),
-        passwordPolicy: await ManagedStorage.get<string>("passwordPolicy"),
-        passwordPolicyHint: await ManagedStorage.get<string>(
-          "passwordPolicyHint"
-        ),
+        backupDisabled,
+        exportDisabled,
+        enforcePassword,
+        enforceAutolock,
+        storageArea,
+        feedbackURL,
+        passwordPolicy,
+        passwordPolicyHint,
       },
       mutations: {
         setZoom: (state: MenuState, zoom: number) => {

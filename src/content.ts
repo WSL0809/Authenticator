@@ -60,9 +60,6 @@ if (!document.getElementById("__ga_grayLayout__")) {
         // invalid command, ignore it
         break;
     }
-
-    // https://stackoverflow.com/a/56483156
-    return true;
   });
 }
 
@@ -239,6 +236,19 @@ async function qrDecode(
       canvas.height = imageData.height;
       canvas.getContext("2d")?.putImageData(imageData, 0, 0);
 
+      const fallbackDecode = () => {
+        const jsQrCode = jsQR(
+          imageData.data,
+          imageData.width,
+          imageData.height
+        );
+        if (jsQrCode) {
+          sendTotp(jsQrCode.data);
+        } else {
+          alert(chrome.i18n.getMessage("errorqr"));
+        }
+      };
+
       const qrReader = new QRCode();
       qrReader.callback = (
         error: string,
@@ -252,33 +262,35 @@ async function qrDecode(
           }>;
         }
       ) => {
-        let qrRes = "";
         if (error) {
           console.error(error);
-          const jsQrCode = jsQR(
-            imageData.data,
-            imageData.width,
-            imageData.height
-          );
-
-          if (jsQrCode) {
-            qrRes = jsQrCode.data;
-          } else {
-            alert(chrome.i18n.getMessage("errorqr"));
-          }
-        } else {
-          qrRes = text.result;
+          fallbackDecode();
+          return;
         }
 
-        chrome.runtime.sendMessage({
-          action: "getTotp",
-          info: qrRes,
-        });
+        sendTotp(text.result);
       };
-      qrReader.decode(imageData);
+
+      try {
+        qrReader.decode(imageData);
+      } catch (error) {
+        console.error(error);
+        fallbackDecode();
+      }
     }
   };
   qr.src = url;
+}
+
+function sendTotp(text: string) {
+  if (!text) {
+    return;
+  }
+
+  chrome.runtime.sendMessage({
+    action: "getTotp",
+    info: text,
+  });
 }
 
 function pasteCode(code: string) {

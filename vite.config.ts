@@ -5,6 +5,7 @@ import path from "node:path";
 
 const entry = process.env.VITE_ENTRY || "src/popup.ts";
 const name = process.env.VITE_NAME || "popup";
+const sourcemap = process.env.VITE_SOURCEMAP === "true";
 const globalName = `Authenticator${name.replace(
   /(^|-)([a-z])/g,
   (_, __, letter) => letter.toUpperCase()
@@ -28,7 +29,7 @@ export default defineConfig({
     assetsInlineLimit: 100 * 1024,
     emptyOutDir: false,
     outDir: "dist",
-    sourcemap: true,
+    sourcemap,
     lib: {
       entry: path.resolve(__dirname, entry),
       name: globalName,
