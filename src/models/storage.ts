@@ -2,6 +2,30 @@ import { Encryption } from "./encryption";
 import { OTPEntry, OTPType, OTPAlgorithm, CodeState } from "./otp";
 import { StorageLocation, UserSettings } from "./settings";
 import { DataType } from "./otp";
+
+export function parseImportedAlgorithm(rawAlgorithm?: string): OTPAlgorithm {
+  if (!rawAlgorithm) {
+    return OTPAlgorithm.SHA1;
+  }
+
+  const normalizedAlgorithm = rawAlgorithm.toUpperCase();
+  switch (normalizedAlgorithm) {
+    case "SHA1":
+      return OTPAlgorithm.SHA1;
+    case "SHA256":
+      return OTPAlgorithm.SHA256;
+    case "SHA512":
+      return OTPAlgorithm.SHA512;
+  }
+
+  const algorithm = parseInt(rawAlgorithm) as OTPAlgorithm;
+  if (OTPAlgorithm[algorithm]) {
+    return algorithm;
+  }
+
+  return OTPAlgorithm.SHA1;
+}
+
 export class BrowserStorage {
   private static async getStorageLocation(): Promise<StorageLocation> {
     await UserSettings.updateItems();
@@ -487,9 +511,7 @@ export class EntryStorage {
         counter: data[hash].counter || 0,
         period: data[hash].period || 30,
         digits: data[hash].digits || 6,
-        algorithm: rawAlgorithm
-          ? (parseInt(rawAlgorithm) as OTPAlgorithm)
-          : OTPAlgorithm.SHA1,
+        algorithm: parseImportedAlgorithm(rawAlgorithm),
         pinned: data[hash].pinned || false,
         hash: data[hash].hash || hash,
       };
