@@ -70,9 +70,9 @@ jobs:
 
       - name: Install Chrome for Puppeteer
         run: |
-          BROWSER_INFO="$(npx puppeteer browsers install chrome)"
-          echo "$BROWSER_INFO"
-          BROWSER_PATH="$(printf '%s\n' "$BROWSER_INFO" | tail -n 1 | cut -d' ' -f2-)"
+          npx puppeteer browsers install chrome
+          BROWSER_PATH="$(node -e "console.log(require('puppeteer').executablePath())")"
+          echo "$BROWSER_PATH"
           test -x "$BROWSER_PATH"
           echo "PUPPETEER_EXEC_PATH=$BROWSER_PATH" >> "$GITHUB_ENV"
 
