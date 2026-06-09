@@ -43,8 +43,8 @@ describe("MenuPage", () => {
 
   before(() => {
     // mock the chrome global object
-    global.chrome.tabs.create = chrome.tabs.create;
-    global.chrome.storage.managed.get = chrome.storage.managed.get;
+    globalThis.chrome.tabs.create = chrome.tabs.create;
+    globalThis.chrome.storage.managed.get = chrome.storage.managed.get;
   });
 
   beforeEach(async () => {
@@ -62,7 +62,7 @@ describe("MenuPage", () => {
   describe("feedback button", () => {
     // mocks the user agent for testing purposes
     const mockUserAgent = (userAgent: string) => {
-      Object.defineProperty(global, "navigator", {
+      Object.defineProperty(globalThis, "navigator", {
         value: {
           userAgent,
         },

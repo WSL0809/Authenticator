@@ -87,7 +87,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapState } from "vuex";
-import * as QRGen from "qrcode-generator";
+import QRGen from "qrcode-generator";
 import { OTPEntry, OTPType, CodeState, OTPAlgorithm } from "../../models/otp";
 import { EntryStorage } from "../../models/storage";
 import { getCurrentTab, okToInjectContentScript } from "../../utils";

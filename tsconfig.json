@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "lib": ["ES2020.Promise", "es6", "dom"],
+    "lib": ["ES2020", "dom"],
     "target": "es6",
     "strict": true,
-    "module": "es2015",
+    "module": "ESNext",
     "rootDir": "src",
     "moduleResolution": "node",
     "outDir": "build",
@@ -26,6 +26,6 @@
     "node_modules"
   ],
   "vueCompilerOptions": {
-    "target": 2
+    "target": 3
   }
 }

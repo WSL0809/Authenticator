@@ -1,4 +1,4 @@
-// Runs tests via puppeteer. Do not compile using webpack.
+// Runs tests via puppeteer. Do not bundle this file.
 
 import puppeteer from "puppeteer";
 import path from "path";

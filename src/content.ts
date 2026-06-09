@@ -2,7 +2,6 @@
 import QRCode from "qrcode-reader";
 import jsQR from "jsqr";
 
-// @ts-expect-error - injected by vue-svg-loader
 import scanGIF from "../images/scan.gif";
 
 if (!document.getElementById("__ga_grayLayout__")) {

@@ -10,3 +10,12 @@ declare module "*.svg" {
   const component: DefineComponent<object, object, any>;
   export default component;
 }
+
+declare module "*.gif" {
+  const src: string;
+  export default src;
+}
+
+interface ImportMeta {
+  glob(pattern: string, options: { eager: true }): Record<string, unknown>;
+}

@@ -55,13 +55,29 @@ if ! [[ $REMOTE = *"https://github.com/Authenticator-Extension/Authenticator.git
 fi
 
 echo "Compiling..."
+buildViteEntry () {
+    VITE_ENTRY=$1 VITE_NAME=$2 ./node_modules/.bin/vite build
+}
+
+buildViteEntries () {
+    buildViteEntry "src/argon.ts" "argon"
+    buildViteEntry "src/background.ts" "background"
+    buildViteEntry "src/content.ts" "content"
+    buildViteEntry "src/popup.ts" "popup"
+    buildViteEntry "src/import.ts" "import"
+    buildViteEntry "src/options.ts" "options"
+    buildViteEntry "src/qrdebug.ts" "qrdebug"
+    buildViteEntry "src/permissions.ts" "permissions"
+}
+
 if [[ $PLATFORM = "prod" ]]; then
-    ./node_modules/webpack-cli/bin/cli.js --config webpack.prod.js
+    buildViteEntries
 elif [[ $PLATFORM = "test" ]]; then
-    ./node_modules/webpack-cli/bin/cli.js --config webpack.dev.js
+    buildViteEntries
+    buildViteEntry "src/test.ts" "test"
     ./node_modules/.bin/tsc --target ES2015 --esModuleInterop --moduleResolution node --module commonjs scripts/test-runner.ts
 else
-    ./node_modules/webpack-cli/bin/cli.js
+    buildViteEntries
 fi
 ./node_modules/sass/sass.js sass:css
 cp ./sass/DroidSansMono.woff2 ./sass/mocha.css ./css/

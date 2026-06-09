@@ -2,13 +2,13 @@
 
 ## Project Structure & Module Organization
 
-This is a TypeScript/Vue 2 browser extension. Core entry points live in `src/` (`background.ts`, `content.ts`, `popup.ts`, `options.ts`, `permissions.ts`). UI components are in `src/components/`, state modules in `src/store/`, domain logic in `src/models/`, and declarations in `src/definitions/`. Tests live in `src/test/`. Static pages are in `view/`, Sass in `sass/`, images in `images/` and `svg/`, locales in `_locales/`, and browser manifests in `manifests/`.
+This is a TypeScript/Vue 3 browser extension built with Vite. Core entry points live in `src/` (`background.ts`, `content.ts`, `popup.ts`, `options.ts`, `permissions.ts`). UI components are in `src/components/`, state modules in `src/store/`, domain logic in `src/models/`, and declarations in `src/definitions/`. Tests live in `src/test/`. Static pages are in `view/`, Sass in `sass/`, images in `images/` and `svg/`, locales in `_locales/`, and browser manifests in `manifests/`.
 
 ## Build, Test, and Development Commands
 
 Run `npm install` before development.
 
-- `npm run dev:chrome`: runs the test build step, then starts webpack watch mode for Chrome.
+- `npm run dev:chrome`: builds the Chrome extension package with the same Vite pipeline as `npm run chrome`.
 - `npm run chrome`, `npm run firefox`, `npm run edge`: builds the extension package for the selected browser.
 - `npm run prod`: builds release artifacts for all supported browsers and generates license output.
 - `npm run pretest`: builds the Chrome and Firefox test bundles into `test/`.
