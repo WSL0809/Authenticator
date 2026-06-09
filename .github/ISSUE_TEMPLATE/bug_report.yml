@@ -1,5 +1,5 @@
 name: Bug Report
-description: Report a bug in Authenticator
+description: Report a bug in VaultOTP
 labels:
   - bug
   - unconfirmed
@@ -8,7 +8,7 @@ body:
     attributes:
       value: |
         Do not use this form to ask about lost codes or accounts!
-        Read more [here](https://authenticator.cc/docs/en/lost-codes).
+        VaultOTP cannot recover lost two-factor authentication secrets or codes.
   - type: textarea
     attributes:
       label: Describe the issue

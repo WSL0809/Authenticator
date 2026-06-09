@@ -1,14 +1,14 @@
 {
   "extName": {
-    "message": "Authenticator",
+    "message": "VaultOTP",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Authenticator",
+    "message": "VaultOTP",
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Authenticator 在你的瀏覽器中生成兩步驟驗證碼。",
+    "message": "VaultOTP 在你的瀏覽器中生成兩步驟驗證碼。",
     "description": "Extension Description."
   },
   "added": {
@@ -120,10 +120,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "重設 Authenticator"
+    "message": "重設 VaultOTP"
   },
   "delete_all_warning": {
-    "message": "這會刪除您所有的資料並重設Authenticator。您將無法復原任何已刪除的資料！在重設Authenticator之前您應備份您的資料。"
+    "message": "這會刪除您所有的資料並重設VaultOTP。您將無法復原任何已刪除的資料！在重設VaultOTP之前您應備份您的資料。"
   },
   "security_warning": {
     "message": "您的金鑰將使用此密碼進行加密。請妥善保管，如果遺失您將失去對此金鑰的權限。",

@@ -15,7 +15,7 @@
         {{ i18n.phrase_incorrect_export }}
       </div>
       <a-button-link
-        download="authenticator.txt"
+        download="vaultotp.txt"
         :href="exportOneLineOtpAuthFile"
         v-if="!unsupportedAccounts && isDataLinkSupported"
         >{{ i18n.download_backup }}</a-button-link
@@ -28,7 +28,7 @@
         {{ i18n.download_backup }}
       </button>
       <a-button-link
-        download="authenticator.json"
+        download="vaultotp.json"
         :href="exportFile"
         v-if="unsupportedAccounts && isDataLinkSupported"
         >{{ i18n.download_backup }}</a-button-link
@@ -41,7 +41,7 @@
         {{ i18n.download_backup }}
       </button>
       <a-button-link
-        download="authenticator.json"
+        download="vaultotp.json"
         :href="exportEncryptedFile"
         v-if="!!defaultEncryption && isDataLinkSupported"
         >{{ i18n.download_enc_backup }}</a-button-link

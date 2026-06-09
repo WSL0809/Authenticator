@@ -28,8 +28,8 @@
       </a-button>
       <div class="text" v-show="!backupToken">
         <a
-          v-on:click="openLink('https://otp.ee/onedriveperms')"
-          href="https://otp.ee/onedriveperms"
+          v-on:click="openLink('https://github.com/WSL0809/Authenticator')"
+          href="https://github.com/WSL0809/Authenticator"
           >{{ i18n.onedrive_business_perms }}</a
         >
       </div>

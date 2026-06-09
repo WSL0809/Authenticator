@@ -42,9 +42,11 @@
         <IconKey />
         <p>
           {{ i18n.no_entires }}
-          <a href="#" v-on:click="openLink('https://otp.ee/quickstart')">{{
-            i18n.learn_more
-          }}</a>
+          <a
+            href="#"
+            v-on:click="openLink('https://github.com/WSL0809/Authenticator')"
+            >{{ i18n.learn_more }}</a
+          >
         </p>
       </div>
     </div>

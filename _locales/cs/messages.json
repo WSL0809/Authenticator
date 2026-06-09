@@ -1,14 +1,14 @@
 {
   "extName": {
-    "message": "Authenticator",
+    "message": "VaultOTP",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Authenticator",
+    "message": "VaultOTP",
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Authenticator generuje kódy dvoufázového ověření ve Vašem prohlížeči.",
+    "message": "VaultOTP generuje kódy dvoufázového ověření ve Vašem prohlížeči.",
     "description": "Extension Description."
   },
   "added": {
@@ -489,7 +489,7 @@
     "message": "Umožňuje přístup do schránky pouze pro zápis a kopírování kódů do schránky po kliknutí na účet."
   },
   "permission_context_menus": {
-    "message": "Přidá Authenticator do kontextové nabídky."
+    "message": "Přidá VaultOTP do kontextové nabídky."
   },
   "permission_sync_clock": {
     "message": "Umožnit synchronizaci hodin s Google."

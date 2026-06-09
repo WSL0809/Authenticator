@@ -1,14 +1,14 @@
 {
   "extName": {
-    "message": "Authenticator",
+    "message": "VaultOTP",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Authenticator",
+    "message": "VaultOTP",
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Authenticator génère des codes d'authentification à deux facteurs dans votre navigateur.",
+    "message": "VaultOTP génère des codes d'authentification à deux facteurs dans votre navigateur.",
     "description": "Extension Description."
   },
   "added": {
@@ -489,7 +489,7 @@
     "message": "Donne un accès en écriture seule au presse-papiers pour copier des codes dans le presse-papiers lorsque vous cliquez sur le compte."
   },
   "permission_context_menus": {
-    "message": "Ajoute Authenticator au menu contextuel."
+    "message": "Ajoute VaultOTP au menu contextuel."
   },
   "permission_sync_clock": {
     "message": "Autoriser la synchronisation de l'horloge avec Google."

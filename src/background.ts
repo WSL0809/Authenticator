@@ -443,7 +443,7 @@ chrome.runtime.onInstalled.addListener(async (details) => {
   let url: string | null = null;
 
   if (isChrome) {
-    url = "https://otp.ee/chromeissues";
+    url = "https://github.com/WSL0809/Authenticator/issues";
   }
 
   if (url) {

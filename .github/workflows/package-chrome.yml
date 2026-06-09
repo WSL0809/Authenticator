@@ -42,7 +42,7 @@ jobs:
           if [[ -z "$ref_name" ]]; then
             ref_name="${GITHUB_SHA::7}"
           fi
-          asset_name="authenticator-chrome-${ref_name}.zip"
+          asset_name="vaultotp-chrome-${ref_name}.zip"
           (cd chrome && zip -r "../${asset_name}" .)
           echo "asset_name=${asset_name}" >> "$GITHUB_OUTPUT"
           echo "asset_path=${asset_name}" >> "$GITHUB_OUTPUT"

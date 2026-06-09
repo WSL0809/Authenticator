@@ -1,14 +1,14 @@
 {
   "extName": {
-    "message": "身份验证器",
+    "message": "VaultOTP",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "身份验证器",
+    "message": "VaultOTP",
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "身份验证器用以在浏览器中生成二步认证代码。",
+    "message": "VaultOTP 用以在浏览器中生成二步认证代码。",
     "description": "Extension Description."
   },
   "added": {
@@ -120,10 +120,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "重置身份验证器"
+    "message": "重置 VaultOTP"
   },
   "delete_all_warning": {
-    "message": "这将删除所有数据并完全重置身份验证器。 任何已删除的数据都无法恢复！在重置身份验证器之前您应保存备份。"
+    "message": "这将删除所有数据并完全重置 VaultOTP。任何已删除的数据都无法恢复！在重置 VaultOTP 之前您应保存备份。"
   },
   "security_warning": {
     "message": "您的账户数据将使用此密码进行加密。如果您忘记了密码没有人能够提供帮助。",
@@ -489,7 +489,7 @@
     "message": "剪贴板只写权限以当您点击该帐户时复制代码到剪贴板。"
   },
   "permission_context_menus": {
-    "message": "将身份验证器添加到右键菜单。"
+    "message": "将 VaultOTP 添加到右键菜单。"
   },
   "permission_sync_clock": {
     "message": "允许从 Google 同步时间"

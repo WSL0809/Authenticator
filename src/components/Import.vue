@@ -27,7 +27,7 @@
       <div>
         <p id="import_info">
           {{ i18n.otp_backup_inform }}
-          <a href="https://otp.ee/otpbackup" target="_blank">{{
+          <a href="https://github.com/WSL0809/Authenticator" target="_blank">{{
             i18n.otp_backup_learn
           }}</a>
         </p>

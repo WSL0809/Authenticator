@@ -4,11 +4,11 @@
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Authenticator",
+    "message": "VaultOTP",
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Authenticator genererer to-faktor autentiseringskoder i nettleseren din.",
+    "message": "VaultOTP genererer to-faktor autentiseringskoder i nettleseren din.",
     "description": "Extension Description."
   },
   "added": {
