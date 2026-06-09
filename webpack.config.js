@@ -39,7 +39,7 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        loader: 'vue-svg-loader'
+        use: ["vue-loader", "vue-svg-loader"]
       },
       {
         test: /\.(png|jpe?g|gif)$/,
@@ -54,13 +54,7 @@ module.exports = {
   },
   plugins: [
     new VueLoaderPlugin(),
-    new ForkTsCheckerWebpackPlugin({
-      typescript: {
-        extensions: {
-          vue: true
-        }
-      }
-    })
+    new ForkTsCheckerWebpackPlugin()
   ],
   resolve: {
     extensions: [

@@ -85,7 +85,7 @@
   </a>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { mapState } from "vuex";
 import * as QRGen from "qrcode-generator";
 import { OTPEntry, OTPType, CodeState, OTPAlgorithm } from "../../models/otp";
@@ -116,7 +116,7 @@ for (const module of computedPrototype) {
   Object.assign(computed, module);
 }
 
-export default Vue.extend({
+export default defineComponent({
   computed,
   props: {
     entry: OTPEntry,

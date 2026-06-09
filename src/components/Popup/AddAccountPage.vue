@@ -44,11 +44,11 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { mapState } from "vuex";
 import { OTPType, OTPEntry, OTPAlgorithm } from "../../models/otp";
 
-export default Vue.extend({
+export default defineComponent({
   data: function (): {
     newAccount: {
       issuer: string;

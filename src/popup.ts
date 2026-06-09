@@ -1,7 +1,7 @@
 // Vue
-import Vue from "vue";
-import Vuex from "vuex";
-import { Vue2Dragula } from "vue2-dragula";
+import { createApp, h } from "vue";
+import type { ComponentPublicInstance } from "vue";
+import { createStore } from "vuex";
 
 // Components
 import Popup from "./components/Popup.vue";
@@ -34,20 +34,21 @@ async function init() {
   await migrateLocalStorageToBrowserStorage();
   await UserSettings.updateItems();
 
-  // Add globals
-  Vue.prototype.i18n = await loadI18nMessages();
+  const app = createApp({
+    render: () => h(Popup),
+    mounted() {
+      // Update time based entries' codes
+      this.$store.commit("accounts/updateCodes");
+      setInterval(() => {
+        this.$store.commit("accounts/updateCodes");
+      }, 1000);
+    },
+  });
 
-  // Load modules
-  Vue.use(Vuex);
-  Vue.use(Vue2Dragula);
-
-  // Load common components globally
-  for (const component of CommonComponents) {
-    Vue.component(component.name, component.component);
-  }
+  app.config.globalProperties.i18n = await loadI18nMessages();
 
   // State
-  const store = new Vuex.Store({
+  const store = createStore({
     modules: {
       accounts: await new Accounts().getModule(),
       advisor: await new Advisor().getModule(),
@@ -60,18 +61,15 @@ async function init() {
     },
   });
 
+  app.use(store);
+
+  // Load common components globally
+  for (const component of CommonComponents) {
+    app.component(component.name, component.component);
+  }
+
   // Render
-  const instance = new Vue({
-    render: (h) => h(Popup),
-    store,
-    mounted() {
-      // Update time based entries' codes
-      this.$store.commit("accounts/updateCodes");
-      setInterval(() => {
-        this.$store.commit("accounts/updateCodes");
-      }, 1000);
-    },
-  }).$mount("#authenticator");
+  const instance = app.mount("#authenticator");
 
   // Prompt for password if needed
   if (instance.$store.state.accounts.shouldShowPassphrase) {
@@ -200,7 +198,10 @@ async function init() {
 
 init();
 
-async function runScheduledBackup(clientTime: number, instance: Vue) {
+async function runScheduledBackup(
+  clientTime: number,
+  instance: ComponentPublicInstance
+) {
   if (instance.$store.state.backup.dropboxToken) {
     chrome.permissions.contains(
       { origins: ["https://*.dropboxapi.com/*"] },

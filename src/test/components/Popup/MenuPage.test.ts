@@ -2,8 +2,8 @@ import "mocha";
 import * as chai from "chai";
 import { assert } from "chai";
 import * as sinonChai from "sinon-chai";
-import { createLocalVue, mount, Wrapper } from "@vue/test-utils";
-import Vuex, { Store } from "vuex";
+import { mount, VueWrapper } from "@vue/test-utils";
+import { createStore, Store } from "vuex";
 
 import { loadI18nMessages } from "../../../store/i18n";
 import MenuPage from "../../../components/Popup/MenuPage.vue";
@@ -21,12 +21,11 @@ import chrome from "sinon-chrome";
 chai.should();
 chai.use(sinonChai);
 mocha.setup("bdd");
-const localVue = createLocalVue();
+let i18n: { [key: string]: string };
 
 describe("MenuPage", () => {
   before(async () => {
-    localVue.prototype.i18n = await loadI18nMessages();
-    localVue.use(Vuex);
+    i18n = await loadI18nMessages();
   });
 
   let storeOpts = {
@@ -40,7 +39,7 @@ describe("MenuPage", () => {
 
   let store: Store<{}>;
 
-  let wrapper: Wrapper<any>;
+  let wrapper: VueWrapper<any>;
 
   before(() => {
     // mock the chrome global object
@@ -49,17 +48,14 @@ describe("MenuPage", () => {
   });
 
   beforeEach(async () => {
-    store = new Vuex.Store({
+    store = createStore({
       modules: storeOpts,
     });
-    wrapper = mount(MenuPage, {
-      store,
-      localVue,
-    });
+    wrapper = mount(MenuPage, getMountOptions(store));
   });
 
   const clickMenuPageButtonByTitle = async (
-    wrapper: Wrapper<any>,
+    wrapper: VueWrapper<any>,
     title: string
   ) => wrapper.find(`*[title='${title}']`).trigger("click");
 
@@ -77,10 +73,7 @@ describe("MenuPage", () => {
     };
 
     beforeEach(() => {
-      wrapper = mount(MenuPage, {
-        store,
-        localVue,
-      });
+      wrapper = mount(MenuPage, getMountOptions(store));
     });
 
     it("should open a new tab to the Chrome help page when the feedback button is clicked and the user agent is Chrome", async () => {
@@ -136,7 +129,7 @@ describe("MenuPage", () => {
             feedbackURL: "https://authenticator.cc",
           });
 
-          store = new Vuex.Store({
+          store = createStore({
             modules: {
               backup: await new Backup().getModule(),
               currentView: new CurrentView().getModule(),
@@ -148,10 +141,7 @@ describe("MenuPage", () => {
             },
           });
 
-          wrapper = mount(MenuPage, {
-            store,
-            localVue,
-          });
+          wrapper = mount(MenuPage, getMountOptions(store));
         } catch (e) {
           console.error(e);
           // Doesn't show up in mocha?
@@ -176,3 +166,16 @@ describe("MenuPage", () => {
     });
   });
 });
+
+function getMountOptions(store: Store<unknown>): any {
+  return {
+    global: {
+      plugins: [store],
+      config: {
+        globalProperties: {
+          i18n,
+        },
+      },
+    },
+  };
+}

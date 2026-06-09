@@ -24,8 +24,7 @@
     </div>
     <!-- Entries -->
     <div
-      v-dragula
-      drake="entryDrake"
+      ref="entriesList"
       v-on:keydown.down="focusNextEntry()"
       v-on:keydown.right="focusNextEntry()"
       v-on:keydown.up="focusLastEntry()"
@@ -52,8 +51,10 @@
   </div>
 </template>
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { mapState, mapGetters } from "vuex";
+import dragula from "dragula";
+import type { Drake } from "dragula";
 import { OTPEntry } from "../../models/otp";
 import { EntryStorage } from "../../models/storage";
 
@@ -72,10 +73,12 @@ const computed: {
   ...mapGetters("accounts", ["shouldFilter", "entries"]),
 };
 
-export default Vue.extend({
+export default defineComponent({
   data: function () {
     return {
       searchText: "",
+      dragStartIndex: -1,
+      entryDrake: null as Drake | null,
     };
   },
   computed,
@@ -166,9 +169,13 @@ export default Vue.extend({
         ?.focus();
     },
   },
-  created() {
-    // Don't drag if !isEditing
-    this.$dragula.$service.options("entryDrake", {
+  mounted() {
+    const entriesList = this.$refs.entriesList as Element | undefined;
+    if (!entriesList) {
+      return;
+    }
+
+    this.entryDrake = dragula([entriesList], {
       invalid: () => {
         if (!this.$store.state.style.style.isEditing) {
           return true;
@@ -178,23 +185,36 @@ export default Vue.extend({
       },
     });
 
-    // Update entry index if dragged
-    this.$dragula.$service.eventBus.$on(
-      "dropModel",
-      async ({
-        dragIndex,
-        dropIndex,
-      }: {
-        dragIndex: number;
-        dropIndex: number;
-      }) => {
-        this.$store.commit("accounts/moveCode", {
-          from: dragIndex,
-          to: dropIndex,
-        });
-        await EntryStorage.set(this.$store.state.accounts.entries);
+    this.entryDrake.on("drag", (el, source) => {
+      this.dragStartIndex = Array.prototype.indexOf.call(
+        source.querySelectorAll(".entry"),
+        el
+      );
+    });
+
+    this.entryDrake.on("drop", async (el, target) => {
+      if (!target || this.dragStartIndex < 0) {
+        return;
       }
-    );
+
+      const dropIndex = Array.prototype.indexOf.call(
+        target.querySelectorAll(".entry"),
+        el
+      );
+      if (dropIndex < 0 || dropIndex === this.dragStartIndex) {
+        return;
+      }
+
+      this.$store.commit("accounts/moveCode", {
+        from: this.dragStartIndex,
+        to: dropIndex,
+      });
+      await EntryStorage.set(this.$store.state.accounts.entries);
+      this.dragStartIndex = -1;
+    });
+  },
+  unmounted() {
+    this.entryDrake?.destroy();
   },
   components: {
     EntryComponent,
