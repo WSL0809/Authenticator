@@ -1,7 +1,7 @@
 <template>
   <button
     :class="{ 'button-small': type === 'small', button: !type }"
-    v-on="$listeners"
+    v-bind="$attrs"
   >
     <slot></slot>
   </button>

@@ -3,10 +3,9 @@
     <label class="combo-label" style="margin: 20px 10px">{{ label }}</label>
     <select
       style="margin: 20px 10px"
-      :value="value"
+      :value="modelValue"
       :disabled="disabled"
-      @input="$emit('input', $event.target.value)"
-      @change="$emit('change')"
+      @change="updateValue"
     >
       <slot></slot>
     </select>
@@ -16,6 +15,25 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  props: ["label", "value", "disabled"],
+  props: {
+    label: String,
+    modelValue: [String, Number],
+    disabled: Boolean,
+    modelModifiers: {
+      type: Object,
+      default: () => ({}),
+    },
+  },
+  emits: ["update:modelValue", "change"],
+  methods: {
+    updateValue(event: Event) {
+      const target = event.target as HTMLSelectElement;
+      const value = this.modelModifiers.number
+        ? Number(target.value)
+        : target.value;
+      this.$emit("update:modelValue", value);
+      this.$emit("change", value);
+    },
+  },
 });
 </script>

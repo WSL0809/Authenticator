@@ -4,8 +4,9 @@
     <input
       class="checkbox"
       type="checkbox"
-      :checked="checked"
-      @change="$emit('change', $event.target.checked)"
+      :checked="modelValue"
+      :disabled="disabled"
+      @change="updateValue"
     />
   </div>
 </template>
@@ -15,11 +16,16 @@ import { defineComponent } from "vue";
 export default defineComponent({
   props: {
     label: String,
-    checked: Boolean,
+    modelValue: Boolean,
+    disabled: Boolean,
   },
-  model: {
-    prop: "checked",
-    event: "change",
+  emits: ["update:modelValue", "change"],
+  methods: {
+    updateValue(event: Event) {
+      const target = event.target as HTMLInputElement;
+      this.$emit("update:modelValue", target.checked);
+      this.$emit("change", target.checked);
+    },
   },
 });
 </script>

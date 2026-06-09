@@ -4,7 +4,7 @@
     <input
       id="import_file"
       type="file"
-      v-on="$listeners"
+      v-bind="$attrs"
       :accept="accept"
       :multiple="multiple"
     />
