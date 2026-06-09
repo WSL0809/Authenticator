@@ -54,3 +54,7 @@ npm audit --omit=dev
 VaultOTP is based on Authenticator-Extension/Authenticator, licensed under MIT.
 Keep the original license and attribution in source distributions and release
 bundles.
+
+## Privacy
+
+See [PRIVACY.md](./PRIVACY.md) for VaultOTP's privacy policy.
