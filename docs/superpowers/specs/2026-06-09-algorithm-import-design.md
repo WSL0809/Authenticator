@@ -2,42 +2,41 @@
 
 ## Context
 
-`otpauth://` imports can include `algorithm=SHA1`, `algorithm=SHA256`, or `algorithm=SHA512`. The current parser in `src/import.ts` stores this value as a raw string, but `EntryStorage.import` later uses `parseInt(rawAlgorithm)`. Standard algorithm strings therefore become `NaN` and fall back to SHA-1.
+Imported `otpauth://` URIs can include an `algorithm` query parameter such as `SHA1`, `SHA256`, or `SHA512`. The current QR/text import path stores that value as a string in raw import data, but `EntryStorage.import` parses it with `parseInt`. Values such as `SHA256` become `NaN`, fail enum validation, and silently fall back to SHA-1.
 
 ## Scope
 
-Fix import of standard `otpauth` algorithm strings only:
+Fix import handling for standard `otpauth` algorithm strings only:
 
 - `SHA1`
 - `SHA256`
 - `SHA512`
 
-GOST algorithm names and other non-standard values are out of scope for this patch.
+Do not add support for GOST algorithm strings, MD5, new UI options, or broader import/export format changes in this patch.
 
-## Design
+## Approach
 
-Add a focused parser at the storage import boundary, near `EntryStorage.import`.
+Normalize imported algorithm values at the storage import boundary. Add a focused parser near `EntryStorage.import` that accepts raw algorithm values and returns an `OTPAlgorithm` enum value.
 
-The parser will accept an optional raw algorithm value and return an `OTPAlgorithm`:
+The parser will:
 
-- missing, empty, invalid, or unsupported values return `OTPAlgorithm.SHA1`
-- case-insensitive `SHA1`, `SHA256`, and `SHA512` map to the matching enum values
-- existing numeric enum strings such as `"1"`, `"2"`, and `"3"` continue to work for backward compatibility
+- Return `OTPAlgorithm.SHA1` for missing, empty, invalid, or unsupported values.
+- Map case-insensitive `SHA1`, `SHA256`, and `SHA512` strings to their enum values.
+- Preserve compatibility with existing numeric enum strings such as `"1"`, `"2"`, and `"3"`.
 
-`EntryStorage.import` will call this parser instead of directly using `parseInt(rawAlgorithm)`. This keeps `src/import.ts` simple and fixes all callers that feed raw import data into storage, including QR import, text import, and file import.
+`src/import.ts` can continue collecting raw query parameter values. `EntryStorage.import` will call the parser instead of directly using `parseInt(rawAlgorithm)`, so QR image import, text import, and file import share the same behavior.
 
 ## Error Handling
 
-Invalid values will continue to default to SHA-1, matching existing behavior. The importer will not reject otherwise valid accounts solely because an unsupported algorithm value is present.
+Invalid algorithms should keep the existing forgiving behavior: default to SHA-1 and continue importing the account. This avoids turning previously importable QR codes or backups into hard failures.
 
 ## Testing
 
-Add focused tests for the parser or import behavior:
+Add focused tests for algorithm normalization:
 
-- `SHA256` imports as `OTPAlgorithm.SHA256`
-- `SHA512` imports as `OTPAlgorithm.SHA512`
-- lowercase or mixed-case values are accepted
-- missing or invalid values default to `OTPAlgorithm.SHA1`
-- numeric strings still resolve to existing enum values
+- `SHA256` imports as `OTPAlgorithm.SHA256`.
+- `SHA512` imports as `OTPAlgorithm.SHA512`.
+- Missing or invalid values default to `OTPAlgorithm.SHA1`.
+- Numeric strings still map to existing enum values.
 
-Prefer a small unit test around the parser if direct browser storage testing would add unnecessary setup.
+Prefer testing the parser directly or through the smallest practical import boundary to avoid brittle browser storage setup.
