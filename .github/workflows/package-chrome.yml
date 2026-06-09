@@ -1,0 +1,61 @@
+name: Chrome Package
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  package-chrome:
+    runs-on: ubuntu-latest
+    name: Package Chrome extension
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+        env:
+          PUPPETEER_SKIP_DOWNLOAD: "true"
+
+      - name: Build Chrome extension
+        run: npm run chrome
+        env:
+          CI: "true"
+
+      - name: Create Chrome zip
+        id: package
+        shell: bash
+        run: |
+          ref_name="${GITHUB_REF_NAME//\//-}"
+          if [[ -z "$ref_name" ]]; then
+            ref_name="${GITHUB_SHA::7}"
+          fi
+          asset_name="authenticator-chrome-${ref_name}.zip"
+          (cd chrome && zip -r "../${asset_name}" .)
+          echo "asset_name=${asset_name}" >> "$GITHUB_OUTPUT"
+          echo "asset_path=${asset_name}" >> "$GITHUB_OUTPUT"
+
+      - name: Upload workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.package.outputs.asset_name }}
+          path: ${{ steps.package.outputs.asset_path }}
+          if-no-files-found: error
+
+      - name: Upload release asset
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ steps.package.outputs.asset_path }}
