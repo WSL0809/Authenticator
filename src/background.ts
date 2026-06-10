@@ -425,28 +425,6 @@ async function uploadBackup(service: string) {
   }
 }
 
-// Show issue page after first install
-chrome.runtime.onInstalled.addListener(async (details) => {
-  if (details.reason !== "install") {
-    return;
-  } else if (await ManagedStorage.get("disableInstallHelp", false)) {
-    return;
-  }
-
-  let url: string | null = null;
-
-  if (isChrome) {
-    url = "https://github.com/WSL0809/Authenticator/issues";
-  }
-
-  if (url) {
-    chrome.tabs.create({ url, active: true });
-  }
-
-  // https://stackoverflow.com/a/56483156
-  return true;
-});
-
 chrome.commands.onCommand.addListener(async (command: string) => {
   const { cachedPassphrase, cachedKeyId } = await chrome.storage.session.get();
 
