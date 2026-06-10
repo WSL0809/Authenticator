@@ -33,8 +33,10 @@
       <EntryComponent
         v-for="entry in entries"
         :key="entry.hash"
-        v-bind:filtered="!entry.pinned && !isMatchedEntry(entry)"
-        v-bind:notSearched="!isSearchedEntry(entry)"
+        v-bind:class="{
+          filtered: !entry.pinned && !isMatchedEntry(entry),
+          'not-searched': !isSearchedEntry(entry),
+        }"
         v-bind:entry="entry"
         v-bind:tabindex="getTabindex(entry)"
       />

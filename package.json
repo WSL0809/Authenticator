@@ -15,6 +15,7 @@
     "browser-extension"
   ],
   "scripts": {
+    "check": "tsc --noEmit --pretty false && npm run chrome",
     "compile": "bash scripts/build.sh firefox",
     "dev:chrome": "npm run chrome",
     "chrome": "bash scripts/build.sh chrome",
