@@ -2,6 +2,8 @@
 
 VaultOTP generates two-factor authentication codes in your browser.
 
+[Install VaultOTP from the Chrome Web Store](https://chromewebstore.google.com/detail/kghimfkkjamkpinfgmpmfngpjiofbkbn?utm_source=item-share-cb)
+
 > **Fork notice:** VaultOTP is a fork of
 > [Authenticator-Extension/Authenticator](https://github.com/Authenticator-Extension/Authenticator).
 > It is independently maintained and is not endorsed by the original
@@ -10,10 +12,8 @@ VaultOTP generates two-factor authentication codes in your browser.
 
 ## Current Status
 
-This fork modernizes the original browser extension stack and prepares a
-separate Chrome Web Store release under the VaultOTP name. Use distinct store
-metadata, icons, screenshots, support URLs, and developer identity when
-publishing.
+This fork modernizes the original browser extension stack and is published as a
+separate Chrome Web Store release under the VaultOTP name.
 
 ## Build Setup
 

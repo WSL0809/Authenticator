@@ -268,14 +268,7 @@ function getBackupToken(service: string) {
         "&redirect_uri=" +
         redirUrl;
     } else if (service === "drive") {
-      if (navigator.userAgent.indexOf("Edg") !== -1) {
-        redirUrl = encodeURIComponent("https://authenticator.cc/oauth-edge");
-      } else if (isFirefox) {
-        redirUrl = encodeURIComponent(chrome.identity.getRedirectURL());
-      } else {
-        redirUrl = encodeURIComponent("https://authenticator.cc/oauth");
-      }
-
+      redirUrl = encodeURIComponent(chrome.identity.getRedirectURL());
       authUrl =
         "https://accounts.google.com/o/oauth2/v2/auth?response_type=code&access_type=offline&client_id=" +
         getCredentials().drive.client_id +
