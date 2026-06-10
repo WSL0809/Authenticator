@@ -47,6 +47,29 @@ npm run prod
 Chrome builds are written to `chrome/`. Production builds are written to
 `release/`.
 
+To type-check and build Chrome in one step:
+
+```bash
+npm run check
+```
+
+## Manual Chrome Web Store Release
+
+Before uploading a new Chrome Web Store package, update the version in
+`manifests/manifest-chrome.json`. The Chrome Web Store rejects uploads that do
+not increase the extension version.
+
+Create a zip package for manual submission:
+
+```bash
+npm run package:chrome
+```
+
+The script runs `npm run check`, rebuilds the Chrome extension, removes
+`.DS_Store` files from the archive, and writes
+`release/vaultotp-chrome-<version>.zip`. Upload that zip in the Chrome Web Store
+Developer Dashboard. Generated packages are ignored by Git.
+
 ## Development
 
 ```bash
@@ -59,7 +82,7 @@ Load the unpacked Chrome extension from `chrome/`.
 Before submitting changes, run:
 
 ```bash
-npm run pretest
+npm run check
 npm audit --omit=dev
 ```
 

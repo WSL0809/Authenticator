@@ -9,12 +9,14 @@ This is a TypeScript/Vue 3 browser extension built with Vite. Core entry points 
 Run `npm install` before development.
 
 - `npm run dev:chrome`: builds the Chrome extension package with the same Vite pipeline as `npm run chrome`.
+- `npm run check`: runs TypeScript type checking, then builds the Chrome package.
 - `npm run chrome`, `npm run firefox`, `npm run edge`: builds the extension package for the selected browser.
+- `npm run package:chrome`: runs checks and creates a Chrome Web Store upload zip at `release/vaultotp-chrome-<version>.zip`.
 - `npm run prod`: builds release artifacts for all supported browsers and generates license output.
 - `npm run pretest`: builds the Chrome and Firefox test bundles into `test/`.
 - `npm test`: runs the Puppeteer/Mocha test runner after `pretest`.
 
-Output directories such as `chrome/`, `firefox/`, `edge/`, `release/`, `test/`, `dist/`, `css/`, and `build/` are generated.
+Output directories such as `chrome/`, `firefox/`, `edge/`, `release/`, `test/`, `dist/`, `css/`, and `build/` are generated. Before creating a Chrome Web Store package, increment `manifests/manifest-chrome.json` because the store rejects uploads with an unchanged version.
 
 ## Coding Style & Naming Conventions
 

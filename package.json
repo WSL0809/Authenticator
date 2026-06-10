@@ -18,6 +18,7 @@
     "check": "tsc --noEmit --pretty false && npm run chrome",
     "compile": "bash scripts/build.sh firefox",
     "dev:chrome": "npm run chrome",
+    "package:chrome": "node scripts/package-chrome.js",
     "chrome": "bash scripts/build.sh chrome",
     "firefox": "bash scripts/build.sh firefox",
     "edge": "bash scripts/build.sh edge",

@@ -4,6 +4,8 @@ build
 chrome*
 firefox*
 edge*
+release/
+vaultotp-chrome-*.zip
 dist
 .vscode
 .atom-build.yml
