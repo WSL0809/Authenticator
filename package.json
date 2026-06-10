@@ -1,7 +1,19 @@
 {
   "name": "vaultotp",
   "version": "0.1.0",
-  "description": "VaultOTP generates two-factor authentication codes in your browser.",
+  "description": "Open-source 2FA authenticator browser extension for TOTP and HOTP one-time passwords.",
+  "keywords": [
+    "vaultotp",
+    "2fa",
+    "totp",
+    "hotp",
+    "otp",
+    "authenticator",
+    "two-factor-authentication",
+    "two-step-verification",
+    "chrome-extension",
+    "browser-extension"
+  ],
   "scripts": {
     "compile": "bash scripts/build.sh firefox",
     "dev:chrome": "npm run chrome",
@@ -21,7 +33,7 @@
   "bugs": {
     "url": "https://github.com/WSL0809/Authenticator/issues"
   },
-  "homepage": "https://github.com/WSL0809/Authenticator#readme",
+  "homepage": "https://chromewebstore.google.com/detail/kghimfkkjamkpinfgmpmfngpjiofbkbn",
   "devDependencies": {
     "@types/argon2-browser": "^1.18.4",
     "@types/chai": "^4.2.14",

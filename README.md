@@ -1,6 +1,9 @@
 # VaultOTP
 
-VaultOTP generates two-factor authentication codes in your browser.
+VaultOTP is an open-source 2FA authenticator browser extension for generating
+TOTP and HOTP one-time passwords directly in Chrome. It helps you manage
+two-step verification codes for Google, GitHub, Microsoft, Discord, and other
+services that support standard OTP authentication.
 
 [Install VaultOTP from the Chrome Web Store](https://chromewebstore.google.com/detail/kghimfkkjamkpinfgmpmfngpjiofbkbn?utm_source=item-share-cb)
 
@@ -14,6 +17,17 @@ VaultOTP generates two-factor authentication codes in your browser.
 
 This fork modernizes the original browser extension stack and is published as a
 separate Chrome Web Store release under the VaultOTP name.
+
+## Features
+
+- Generate time-based and counter-based OTP codes in the browser.
+- Add accounts by scanning QR codes, importing QR images, or entering secrets
+  manually.
+- Import standard `otpauth://` URLs and Google Authenticator migration exports.
+- Copy codes quickly, use optional autofill, and add VaultOTP to the context
+  menu.
+- Protect account data with local encryption and optional encrypted backups.
+- Back up data manually or through supported cloud providers.
 
 ## Build Setup
 

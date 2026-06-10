@@ -8,7 +8,7 @@
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "VaultOTP 用以在浏览器中生成二步认证代码。",
+    "message": "VaultOTP 是开源 2FA 验证器扩展，支持 TOTP/HOTP 动态码、二维码导入、自动填充和加密备份。",
     "description": "Extension Description."
   },
   "added": {

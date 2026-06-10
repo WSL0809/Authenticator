@@ -8,7 +8,7 @@
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "VaultOTP 在你的瀏覽器中生成兩步驟驗證碼。",
+    "message": "VaultOTP 是開源 2FA 驗證器擴充功能，支援 TOTP/HOTP 動態碼、QR 匯入、自動填入與加密備份。",
     "description": "Extension Description."
   },
   "added": {
