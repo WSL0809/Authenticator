@@ -1,6 +1,8 @@
 <template>
   <div class="header">
-    <span v-on:dblclick="popOut()">{{ i18n.extName }}</span>
+    <span class="header-title" v-on:dblclick="popOut()">{{
+      i18n.extName
+    }}</span>
     <div v-show="!isPopup()">
       <div
         class="icon"
@@ -33,7 +35,7 @@
         class="icon"
         id="i-sync"
         v-bind:style="{
-          left: !!defaultEncryption ? '70px' : '45px',
+          left: !!defaultEncryption ? '76px' : '44px',
         }"
         v-show="
           (dropboxToken || driveToken || oneDriveToken) && !style.isEditing

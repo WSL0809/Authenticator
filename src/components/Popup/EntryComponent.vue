@@ -38,7 +38,7 @@
     >
       <IconRedo />
     </div>
-    <div class="issuer">
+    <div class="issuer issuer-name">
       {{
         entry.issuer.split("::")[0] +
         (theme === "compact" ? ` (${entry.account})` : "")
@@ -60,7 +60,7 @@
       }"
       v-html="style.isEditing ? showBulls(entry) : showCode(entry.code)"
     ></div>
-    <div class="issuer account">{{ entry.account }}</div>
+    <div class="issuer account entry-account">{{ entry.account }}</div>
     <div class="issuerEdit">
       <input
         v-bind:placeholder="i18n.accountName"
