@@ -1,15 +1,23 @@
 {
   "extName": {
-    "message": "Autentikaator",
+    "message": "VaultOTP",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Autentikaator",
+    "message": "VaultOTP",
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Autentikaator genereerib teie brauseris mitmikautentimise koode.",
+    "message": "VaultOTP - Autentikaator genereerib teie brauseris mitmikautentimise koode.",
     "description": "Extension Description."
+  },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
   },
   "added": {
     "message": " on lisatud.",
@@ -120,10 +128,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Lähtesta autentikaator"
+    "message": "VaultOTP - Lähtesta autentikaator"
   },
   "delete_all_warning": {
-    "message": "See kustutab kõik teie andmed ja lähtestab Autentikaatori täielikult. Kustutatud andmeid ei saa taastada! Enne Autentikaatori lähtestamist peaksite kaaluma varukoopia loomist."
+    "message": "VaultOTP - See kustutab kõik teie andmed ja lähtestab Autentikaatori täielikult. Kustutatud andmeid ei saa taastada! Enne Autentikaatori lähtestamist peaksite kaaluma varukoopia loomist."
   },
   "security_warning": {
     "message": "Seda salasõna kasutatakse teie kontode krüpteerimiseks. Kui unustate salasõna, ei saa keegi teid aidata.",

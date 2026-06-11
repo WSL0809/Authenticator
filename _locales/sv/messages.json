@@ -11,6 +11,14 @@
     "message": "VaultOTP genererar 2-stegs verifieringskoder i din webbläsare.",
     "description": "Extension Description."
   },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
+  },
   "added": {
     "message": " har lagts till.",
     "description": "Added Account."
@@ -120,7 +128,7 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Återställ autentiserare"
+    "message": "VaultOTP - Återställ autentiserare"
   },
   "delete_all_warning": {
     "message": "Det här kommer att radera alla dina data och återställa VaultOTP helt. Du kommer inte kunna återskapa några raderade data! Du bör överväga att spara en säkerhetskopia innan du återställer VaultOTP."

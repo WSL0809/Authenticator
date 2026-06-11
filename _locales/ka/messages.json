@@ -1,15 +1,23 @@
 {
   "extName": {
-    "message": "აუთენთიფიკატორი",
+    "message": "VaultOTP",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "აუთენთიფიკატორი",
+    "message": "VaultOTP",
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "აუთენთიფიკატორი აგენერირებს ორფაქტორიან აუთენთიფიკაციის კოდებს თქვენს ბრაუზერში.",
+    "message": "VaultOTP - აუთენთიფიკატორი აგენერირებს ორფაქტორიან აუთენთიფიკაციის კოდებს თქვენს ბრაუზერში.",
     "description": "Extension Description."
+  },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
   },
   "added": {
     "message": " დაემატა.",
@@ -120,10 +128,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "აუთენთიფიკატორის აღდგენა"
+    "message": "VaultOTP - აუთენთიფიკატორის აღდგენა"
   },
   "delete_all_warning": {
-    "message": "ეს მოქმედება წაშლის თქვენს ყველა მონაცემს და აღადგენს აუთენთიფიკატორის ყველა პარამეტრს. თქვენ ვერ შეძლებთ წაშლილი მონაცემების აღდგენას! აუთენთიფიკატორის აღდგენამდე, თქვენ უნდა შეინახოთ სარეზერვო ასლი."
+    "message": "VaultOTP - ეს მოქმედება წაშლის თქვენს ყველა მონაცემს და აღადგენს აუთენთიფიკატორის ყველა პარამეტრს. თქვენ ვერ შეძლებთ წაშლილი მონაცემების აღდგენას! აუთენთიფიკატორის აღდგენამდე, თქვენ უნდა შეინახოთ სარეზერვო ასლი."
   },
   "security_warning": {
     "message": "ეს პაროლი გამოყენებული იქნება თქვენი ანგარიშების დაშიფვრისთვის. ვერავინ დაგეხმარებათ, თუ დაგავიწყდათ პაროლი.",
@@ -489,7 +497,7 @@
     "message": "ანიჭებს მხოლოდ ჩაწერის წვდომას გაცვლის ბუფერზე, რათა დააკოპიროთ კოდები, ანგარიშზე დაჭერის დროს."
   },
   "permission_context_menus": {
-    "message": "ამატებს აუთენთიფიკატორს კონტექსტურ მენიუში."
+    "message": "VaultOTP - ამატებს აუთენთიფიკატორს კონტექსტურ მენიუში."
   },
   "permission_sync_clock": {
     "message": "საშუალებას გაძლევთ, მოახდინოთ დროის სინქრონიზაცია Google-თან."

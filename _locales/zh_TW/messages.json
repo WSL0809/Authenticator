@@ -8,15 +8,23 @@
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "VaultOTP 是開源 2FA 驗證器擴充功能，支援 TOTP/HOTP 動態碼、QR 匯入、自動填入與加密備份。",
+    "message": "VaultOTP 是一款開源 2FA 驗證器擴充功能，支援 TOTP/HOTP 動態碼、QR 碼匯入、自動填入與加密備份。",
     "description": "Extension Description."
+  },
+  "command_scan_qr": {
+    "message": "掃描 QR 碼",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "自動填入相符的驗證碼",
+    "description": "Command description for autofilling the matched code."
   },
   "added": {
     "message": "已新增。",
     "description": "Added Account."
   },
   "errorqr": {
-    "message": "無法識別的QR碼。",
+    "message": "無法識別 QR 碼。",
     "description": "QR Error."
   },
   "errorsecret": {
@@ -28,7 +36,7 @@
     "description": "Add account."
   },
   "add_qr": {
-    "message": "掃描QR碼",
+    "message": "掃描 QR 碼",
     "description": "Scan QR Code."
   },
   "add_secret": {
@@ -36,11 +44,11 @@
     "description": "Manual Entry."
   },
   "migration_fail": {
-    "message": "匯入失敗。若您要從Google Authenticator搬遷資料，請重新從Google Autenticator匯出資料後再重試",
+    "message": "匯入失敗。如果您正在從 Google Authenticator 遷移資料，請重新從 Google Authenticator 匯出資料後再試。",
     "description": "Import migration data failed."
   },
   "migration_partly_fail": {
-    "message": "部分帳號資料未被成功匯入",
+    "message": "部分帳戶資料未成功匯入。",
     "description": "Some migration data is broken."
   },
   "close": {
@@ -64,7 +72,7 @@
     "description": "Account."
   },
   "accountName": {
-    "message": "用戶名",
+    "message": "使用者名稱",
     "description": "Account Name."
   },
   "issuer": {
@@ -123,10 +131,10 @@
     "message": "重設 VaultOTP"
   },
   "delete_all_warning": {
-    "message": "這會刪除您所有的資料並重設VaultOTP。您將無法復原任何已刪除的資料！在重設VaultOTP之前您應備份您的資料。"
+    "message": "這會刪除您的所有資料並完全重設 VaultOTP。已刪除的資料無法復原！重設 VaultOTP 前，請先儲存備份。"
   },
   "security_warning": {
-    "message": "您的金鑰將使用此密碼進行加密。請妥善保管，如果遺失您將失去對此金鑰的權限。",
+    "message": "您的帳戶資料將使用此密碼加密。如果忘記密碼，沒有人能協助您復原資料。",
     "description": "Passphrase Warning."
   },
   "update": {
@@ -134,15 +142,15 @@
     "description": "Update."
   },
   "phrase_incorrect": {
-    "message": "部份帳號輸入密碼錯誤，您無法新增帳號。請在輸入正確的密碼後繼續。",
+    "message": "部分帳戶尚未解密，暫時無法新增帳戶或變更密碼。請輸入正確密碼後再試。",
     "description": "Passphrase Incorrect."
   },
   "phrase_incorrect_export": {
-    "message": "本次備份不包含無法解密的帳號",
+    "message": "備份檔案不會包含無法解密的帳戶。",
     "description": "Skip Unable-decripted Data."
   },
   "phrase_not_match": {
-    "message": "密碼錯誤。",
+    "message": "密碼不一致。",
     "description": "Passphrase Not Match."
   },
   "encrypted": {
@@ -190,15 +198,15 @@
     "description": "Capture Failed"
   },
   "capture_local_file_failed": {
-    "message": "您是否試著從本地檔案掃描QR碼? 請改用 匯入QR碼圖片備份。",
+    "message": "您是否正在嘗試從本機檔案掃描 QR 碼？請改用「匯入 QR 圖片備份」。",
     "description": "Import QR image backup instead of scan local image"
   },
   "based_on_time": {
-    "message": "驗證碼",
+    "message": "基於時間",
     "description": "Time Based"
   },
   "based_on_counter": {
-    "message": "一次性驗證碼",
+    "message": "基於計數器",
     "description": "Counter Based"
   },
   "resize_popup_page": {
@@ -226,7 +234,7 @@
     "description": "Import backup file."
   },
   "import_backup_qr": {
-    "message": "导入 QR 图片备份",
+    "message": "匯入 QR 圖片備份",
     "description": "Import qr image backup."
   },
   "import_qr_images": {
@@ -238,11 +246,11 @@
     "description": "Import backup code."
   },
   "import_otp_urls": {
-    "message": "匯入 OTP 網址",
+    "message": "匯入 OTP 連結",
     "description": "Import OTP URLs. Shown as add account method."
   },
   "import_backup_qr_partly_failed": {
-    "message": "匯入成功，但部份QR碼無法辨識",
+    "message": "匯入成功，但部分 QR 碼無法識別。",
     "description": "Import successful, but some QR image cannot be recognized."
   },
   "import_backup_qr_in_batches": {
@@ -294,7 +302,7 @@
     "description": "Manual backup"
   },
   "use_autofill": {
-    "message": "啟用自動填充",
+    "message": "自動填入",
     "description": "Use Autofill"
   },
   "use_high_contrast": {
@@ -330,11 +338,11 @@
     "description": "Flat theme"
   },
   "storage_sync_info": {
-    "message": "自動備份您的資料至第三方儲存服務。",
+    "message": "自動將資料備份到第三方儲存服務。",
     "description": "3rd party backup info"
   },
   "browser_sync": {
-    "message": "瀏覽器同步",
+    "message": "瀏覽器資料同步",
     "description": "Storage location"
   },
   "sign_in": {
@@ -346,7 +354,7 @@
     "description": "Sign in to 3rd party storage services"
   },
   "onedrive_business_perms": {
-    "message": "為什麼企業賬戶需要更多權限？"
+    "message": "為什麼企業帳戶需要更多權限？"
   },
   "log_out": {
     "message": "登出",
@@ -367,7 +375,7 @@
     "description": "Warning if using account that is not supported by standard backup format."
   },
   "otp_backup_inform": {
-    "message": "您可以從其他一些應用程序導入備份。",
+    "message": "您可以從其他應用程式匯入備份。",
     "description": "Info text on import page"
   },
   "otp_backup_learn": {
@@ -402,7 +410,7 @@
     "message": "算法"
   },
   "smart_filter": {
-    "message": "智慧過濾"
+    "message": "智慧篩選器"
   },
   "backup": {
     "message": "備份"
@@ -411,7 +419,7 @@
     "message": "備份至檔案"
   },
   "password_policy_default_hint": {
-    "message": "您的密碼不符合您組織的安全要求。 有關詳細信息，請聯繫您的管理員。"
+    "message": "您的密碼不符合組織的安全要求。請聯絡組織管理員以取得詳細資訊。"
   },
   "advisor": {
     "message": "顧問"
@@ -420,22 +428,22 @@
     "message": "設定密碼保護您的資料。"
   },
   "advisor_insight_auto_lock_not_set": {
-    "message": "啟用自動鎖定以保護你的資料"
+    "message": "啟用自動鎖定以保護您的資料。"
   },
   "advisor_insight_browser_sync_not_enabled": {
-    "message": "已禁用瀏覽器同步。啟用以在不同瀏覽器同步賬號。"
+    "message": "瀏覽器同步已停用。啟用後可在不同瀏覽器間同步帳戶。"
   },
   "advisor_insight_auto_fill_not_enabled": {
-    "message": "可以啟動自動填入以自動填入代碼到網站中"
+    "message": "可以啟用自動填入，將驗證碼自動填入網站。"
   },
   "advisor_insight_smart_filter_not_enabled": {
-    "message": "啟用智能過濾器可以快速訪問帳戶。"
+    "message": "啟用智慧篩選器，以便快速存取帳戶。"
   },
   "show_all_insights": {
     "message": "顯示所有見解。"
   },
   "no_insight_available": {
-    "message": "無任何見解被發現；一切完好!"
+    "message": "目前沒有建議；一切看起來都很好！"
   },
   "danger": {
     "message": "危險"
@@ -453,72 +461,72 @@
     "message": "了解更多"
   },
   "enable_context_menu": {
-    "message": "加到右鍵選單"
+    "message": "新增至右鍵選單"
   },
   "no_entires": {
-    "message": "帳號不存在，請新增帳號。"
+    "message": "沒有可顯示的帳戶。立即新增第一個帳戶。"
   },
   "permissions": {
-    "message": "使用權限"
+    "message": "權限管理"
   },
   "permission_revoke": {
-    "message": "註銷"
+    "message": "撤銷"
   },
   "permission_show_required_permissions": {
-    "message": "顯示不可註銷的權限。"
+    "message": "顯示不可撤銷的權限"
   },
   "permission_required": {
-    "message": "這是必要的權限而且不可以註銷。"
+    "message": "這是必要權限，無法撤銷。"
   },
   "permission_active_tab": {
-    "message": "存取當前頁面並掃描QR碼"
+    "message": "存取目前分頁以掃描 QR 碼。"
   },
   "permission_storage": {
-    "message": "存取瀏覽器空間以便存放帳戶資訊"
+    "message": "存取瀏覽器儲存空間以保存帳戶資料。"
   },
   "permission_identity": {
-    "message": "允許登入第三方儲存服務。"
+    "message": "用於登入第三方儲存服務。"
   },
   "permission_alarms": {
-    "message": "Allows auto-lock to work."
+    "message": "允許自動鎖定功能運作。"
   },
   "permission_scripting": {
-    "message": "Inject scripts into he current tab to scan QR codes and allow auto-fill to work."
+    "message": "將腳本注入目前分頁，以掃描 QR 碼並支援自動填入。"
   },
   "permission_clipboard_write": {
-    "message": "授權點選帳戶時複製驗證碼到剪貼簿。"
+    "message": "授予唯寫剪貼簿權限，以便在您點選帳戶時複製驗證碼。"
   },
   "permission_context_menus": {
-    "message": "將驗證器加到右鍵選單"
+    "message": "將 VaultOTP 新增至瀏覽器右鍵選單。"
   },
   "permission_sync_clock": {
-    "message": "允許與 Google 連線校時。"
+    "message": "允許透過 Google 同步時間。"
   },
   "permission_dropbox": {
-    "message": "允許備份到Dropbox."
+    "message": "允許備份到 Dropbox。"
   },
   "permission_dropbox_cannot_revoke": {
-    "message": "請先取消 Dropbox 備份"
+    "message": "您必須先停用 Dropbox 備份。"
   },
   "permission_drive": {
-    "message": "允許備份到Google Drive."
+    "message": "允許備份到 Google Drive。"
   },
   "permission_drive_cannot_revoke": {
-    "message": "請先取消 Google Drive 備份"
+    "message": "您必須先停用 Google Drive 備份。"
   },
   "permission_onedrive": {
-    "message": "允許備份到OneDrive."
+    "message": "允許備份到 OneDrive。"
   },
   "permission_onedrive_cannot_revoke": {
-    "message": "請先取消 OneDrvie 備份"
+    "message": "您必須先停用 OneDrive 備份。"
   },
   "permission_unknown_permission": {
-    "message": "未知的權限。您如果看到這個訊息，請回報程式異常。"
+    "message": "未知權限。如果您看到此訊息，請回報錯誤。"
   },
   "phrase_wrong": {
-    "message": "Password incorrect"
+    "message": "密碼不正確。"
   },
   "activate_auto_filter": {
-    "message": "Warning: Smart filter loosely matches the domain name to an account. Always verify that you are on the correct website before entering a code!"
+    "message": "警告：智慧篩選器會根據網站網域粗略匹配帳戶。輸入驗證碼前，請務必確認目前網站正確。"
   }
 }

@@ -4,12 +4,20 @@
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "احراز هویت کننده",
+    "message": "VaultOTP",
     "description": "Extension Short Name."
   },
   "extDesc": {
     "message": "افزونه VaultOTP کدهای تأیید هویت دو مرحله‌ای را در مرورگر شما تولید می‌کند.",
     "description": "Extension Description."
+  },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
   },
   "added": {
     "message": " اضافه شده است.",

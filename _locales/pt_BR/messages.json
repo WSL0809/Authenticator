@@ -1,15 +1,23 @@
 {
   "extName": {
-    "message": "Autenticador",
+    "message": "VaultOTP",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Autenticador",
+    "message": "VaultOTP",
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "O autenticador gera códigos de verificação em dois fatores no seu navegador.",
+    "message": "VaultOTP - O autenticador gera códigos de verificação em dois fatores no seu navegador.",
     "description": "Extension Description."
+  },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
   },
   "added": {
     "message": " foi adicionado.",
@@ -120,10 +128,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Redefinir Autenticador"
+    "message": "VaultOTP - Redefinir Autenticador"
   },
   "delete_all_warning": {
-    "message": "Isso irá deletar todos os seus dados e redefinir o Autenticador completamente. Você não conseguirá recuperar qualquer dado deletado! Você deveria fazer uma cópia de segurança antes de redefinir o Autenticador."
+    "message": "VaultOTP - Isso irá deletar todos os seus dados e redefinir o Autenticador completamente. Você não conseguirá recuperar qualquer dado deletado! Você deveria fazer uma cópia de segurança antes de redefinir o Autenticador."
   },
   "security_warning": {
     "message": "Essa senha será usada para criptografar as suas contas. Ninguém poderá te ajudar se você esquecer a senha.",
@@ -489,7 +497,7 @@
     "message": "Concede acesso somente de escrita à área de transferência para copiar códigos para a área de transferência quando você clicar na conta."
   },
   "permission_context_menus": {
-    "message": "Adiciona o Autenticador ao menu de contexto."
+    "message": "VaultOTP - Adiciona o Autenticador ao menu de contexto."
   },
   "permission_sync_clock": {
     "message": "Permite a sincronização de relógio com o Google."

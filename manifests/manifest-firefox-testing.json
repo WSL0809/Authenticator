@@ -33,7 +33,7 @@
     "commands": {
         "_execute_browser_action": {},
         "scan-qr": {
-            "description": "Scan a QR code"
+            "description": "__MSG_command_scan_qr__"
         }
     },
     "options_ui": {

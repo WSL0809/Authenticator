@@ -1,15 +1,23 @@
 {
   "extName": {
-    "message": "Удостоверител",
+    "message": "VaultOTP",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Удостоверяване",
+    "message": "VaultOTP",
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Удостоверителя генерира 2-фактурна защита, за вашият браузър.",
+    "message": "VaultOTP - Удостоверителя генерира 2-фактурна защита, за вашият браузър.",
     "description": "Extension Description."
+  },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
   },
   "added": {
     "message": " е добавен.",
@@ -120,10 +128,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Нулирай Удостоверител"
+    "message": "VaultOTP - Нулирай Удостоверител"
   },
   "delete_all_warning": {
-    "message": "Това ще изтрие всичките ви данни и изцяло ще изтрие Удостоверителя. Няма да можете да възстановите изтритите данни! Препоръчваме за архивирате, преди да нулирате Удостоверителя."
+    "message": "VaultOTP - Това ще изтрие всичките ви данни и изцяло ще изтрие Удостоверителя. Няма да можете да възстановите изтритите данни! Препоръчваме за архивирате, преди да нулирате Удостоверителя."
   },
   "security_warning": {
     "message": "Тази парола ще се използва за кодиране на вашите акаунти. Никой не може да ви помогне, ако си забравите паролата.",
@@ -489,7 +497,7 @@
     "message": "Дава само write-only достъп до клавиатурата с цел копиране на кодове в клипборда, когато кликнете върху акаунта."
   },
   "permission_context_menus": {
-    "message": "Добавя Удостоверител в контекстното меню."
+    "message": "VaultOTP - Добавя Удостоверител в контекстното меню."
   },
   "permission_sync_clock": {
     "message": "Позволява синхронизация на часовника с Google."

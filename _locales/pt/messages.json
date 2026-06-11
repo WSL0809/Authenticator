@@ -1,15 +1,23 @@
 {
   "extName": {
-    "message": "Autenticador",
+    "message": "VaultOTP",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Autenticador",
+    "message": "VaultOTP",
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "O autenticador gera códigos de autenticação de dois factores no seu navegador.",
+    "message": "VaultOTP - O autenticador gera códigos de autenticação de dois factores no seu navegador.",
     "description": "Extension Description."
+  },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
   },
   "added": {
     "message": "foi adicionado ao.",
@@ -120,10 +128,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Redefinir Autenticação"
+    "message": "VaultOTP - Redefinir Autenticação"
   },
   "delete_all_warning": {
-    "message": "Irá apagar todos os seus dados e redefinir a autenticação completamente. Não será possível recuperar quaisquer dados apagados! Deve considerar guardar uma cópia de segurança antes de redefinir a autenticação."
+    "message": "VaultOTP - Irá apagar todos os seus dados e redefinir a autenticação completamente. Não será possível recuperar quaisquer dados apagados! Deve considerar guardar uma cópia de segurança antes de redefinir a autenticação."
   },
   "security_warning": {
     "message": "Esta palavra-passe será utilizada para encriptar todas as suas contas. Ninguém poderá ajudá-lo caso se esqueça da sua palavra-passe.",

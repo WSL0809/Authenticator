@@ -11,6 +11,14 @@
     "message": "VaultOTP はお使いのブラウザーで2段階認証コードを生成します。",
     "description": "Extension Description."
   },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
+  },
   "added": {
     "message": " 追加されました。",
     "description": "Added Account."
@@ -120,10 +128,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "認証システムをリセット"
+    "message": "VaultOTP - 認証システムをリセット"
   },
   "delete_all_warning": {
-    "message": "これにより、すべてのデータが削除され、認証システムが完全にリセットされます。 削除されたデータを復元することはできません。 認証システムをリセットする前にバックアップを保存することをお勧めします。"
+    "message": "VaultOTP - これにより、すべてのデータが削除され、認証システムが完全にリセットされます。 削除されたデータを復元することはできません。 認証システムをリセットする前にバックアップを保存することをお勧めします。"
   },
   "security_warning": {
     "message": "このパスワードであなたのアカウントを暗号化します。パスワードを紛失すると復旧できなくなりますのでご注意ください。",
@@ -489,7 +497,7 @@
     "message": "アカウントをクリックしたときにクリップボードへの書き込み専用の権限を許可します。"
   },
   "permission_context_menus": {
-    "message": "コンテキストメニューに認証システムを追加します。"
+    "message": "VaultOTP - コンテキストメニューに認証システムを追加します。"
   },
   "permission_sync_clock": {
     "message": "Google との時刻の同期を許可します。"

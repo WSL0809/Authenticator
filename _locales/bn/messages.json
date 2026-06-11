@@ -1,15 +1,23 @@
 {
   "extName": {
-    "message": "অথেন্টিকেটর",
+    "message": "VaultOTP",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "অথেন্টিকেটর",
+    "message": "VaultOTP",
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "অথেন্টিকেটর আপনার ব্রাউজারে টু-ফ্যাক্টর অথেন্টিকেশন কোড উৎপন্ন করে।",
+    "message": "VaultOTP - অথেন্টিকেটর আপনার ব্রাউজারে টু-ফ্যাক্টর অথেন্টিকেশন কোড উৎপন্ন করে।",
     "description": "Extension Description."
+  },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
   },
   "added": {
     "message": "যোগ করা হয়েছে।",
@@ -120,10 +128,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "অথেন্টিকেটর রিসেট করুন"
+    "message": "VaultOTP - অথেন্টিকেটর রিসেট করুন"
   },
   "delete_all_warning": {
-    "message": "এই কাজের ফলে আপনার সকল ডেটা মুছে ফেলা হবে এবং সম্পূর্ণভাবে অথেন্টিকেটর রিসেট করা হবে। আপনি কোনোভাবেই যেকোনো মুছে ফেলা ডেটা পুনরুদ্ধার করতে পারবেন না! অথেন্টিকেটর রিসেট করার পূর্বে ব্যাকআপ ডেটা সংরক্ষণ করার ব্যাপারে আপনার বিবেচনা করা উচিত।"
+    "message": "VaultOTP - এই কাজের ফলে আপনার সকল ডেটা মুছে ফেলা হবে এবং সম্পূর্ণভাবে অথেন্টিকেটর রিসেট করা হবে। আপনি কোনোভাবেই যেকোনো মুছে ফেলা ডেটা পুনরুদ্ধার করতে পারবেন না! অথেন্টিকেটর রিসেট করার পূর্বে ব্যাকআপ ডেটা সংরক্ষণ করার ব্যাপারে আপনার বিবেচনা করা উচিত।"
   },
   "security_warning": {
     "message": "এই পাসওয়ার্ড আপনার অ্যাকাউন্টকে এনক্রিপ্ট করতে কাজে লাগবে। কেউ আপনাকে সাহায্য করবে না যদি আপনি পাসওয়ার্ড ভুলে যান।",
@@ -489,7 +497,7 @@
     "message": "আপনি যখন অ্যাকাউন্টে ক্লিক করেন তখন ক্লিপবোর্ডে কোডটি কপি করতে ক্লিপবোর্ডে শুধুমাত্র লেখার অ্যাক্সেস প্রদান করে।"
   },
   "permission_context_menus": {
-    "message": "কনট্যাক্স মেনু তে অথেন্টিকেটর যুক্ত করুন। "
+    "message": "VaultOTP - কনট্যাক্স মেনু তে অথেন্টিকেটর যুক্ত করুন। "
   },
   "permission_sync_clock": {
     "message": "গুগল এর সাথে ঘড়ি সিঙ্ক করুন।"

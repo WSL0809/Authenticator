@@ -1,15 +1,23 @@
 {
   "extName": {
-    "message": "מאמת",
+    "message": "VaultOTP",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "מאמת",
+    "message": "VaultOTP",
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "המאמת מחולל קודי אימות דו שלבי ישירות מהדפדפן.",
+    "message": "VaultOTP - המאמת מחולל קודי אימות דו שלבי ישירות מהדפדפן.",
     "description": "Extension Description."
+  },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
   },
   "added": {
     "message": " התווסף.",
@@ -120,10 +128,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "איפוס מאמת"
+    "message": "VaultOTP - איפוס מאמת"
   },
   "delete_all_warning": {
-    "message": "פעולה זו תמחוק את כל המידע שלך ותאפס את המאמת. שחזור המידע האישי לא יהיה אפשרי! מומלץ לשמור גיבוי לפני איפוס המאמת."
+    "message": "VaultOTP - פעולה זו תמחוק את כל המידע שלך ותאפס את המאמת. שחזור המידע האישי לא יהיה אפשרי! מומלץ לשמור גיבוי לפני איפוס המאמת."
   },
   "security_warning": {
     "message": "סיסמה זו תשמש להצפנת חשבונותיך. אין דרך לשחזר את הסיסמה אם היא תשכח.",

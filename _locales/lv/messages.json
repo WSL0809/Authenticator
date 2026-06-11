@@ -1,15 +1,23 @@
 {
   "extName": {
-    "message": "Divpakāpju kodu ģenerators",
+    "message": "VaultOTP",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Divpakāpju kodu ģenerators",
+    "message": "VaultOTP",
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Divpakāpju kodu ģenerators atvieglo darbu ar 2FA (divpakāpju) autentifikācijas kodu izveidošanu un aizpildīšanu jūsu pārlūkprogrammā",
+    "message": "VaultOTP - Divpakāpju kodu ģenerators atvieglo darbu ar 2FA (divpakāpju) autentifikācijas kodu izveidošanu un aizpildīšanu jūsu pārlūkprogrammā",
     "description": "Extension Description."
+  },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
   },
   "added": {
     "message": " tika pievienots(a).",
@@ -120,10 +128,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Atiestatīt Divpakāpju kodu ģeneratoru"
+    "message": "VaultOTP - Atiestatīt Divpakāpju kodu ģeneratoru"
   },
   "delete_all_warning": {
-    "message": "Tiks dzēsti visi jūsu dati un pilnībā tiks atiestatīts Divpakāpju kodu ģenerators. Jūs nevarēsiet atgūt izdzēstos datus! Pirms Divpakāpju kodu ģeneratora atiestatīšanas apsveriet iespēju veikt rezerves kopiju."
+    "message": "VaultOTP - Tiks dzēsti visi jūsu dati un pilnībā tiks atiestatīts Divpakāpju kodu ģenerators. Jūs nevarēsiet atgūt izdzēstos datus! Pirms Divpakāpju kodu ģeneratora atiestatīšanas apsveriet iespēju veikt rezerves kopiju."
   },
   "security_warning": {
     "message": "Šī parole tiks izmantota jūsu kontu šifrēšanai. Neviens nevarēs jums palīdzēt, ja aizmirsīsiet paroli.",
@@ -489,7 +497,7 @@
     "message": "Piešķir tikai rakstīšanas piekļuvi starpliktuvei, lai varētu kopēt kodus starpliktuvē, kad noklikšķināt uz konta."
   },
   "permission_context_menus": {
-    "message": "Pievieno Divpakāpju kodu ģeneratoru konteksta izvēlnei."
+    "message": "VaultOTP - Pievieno Divpakāpju kodu ģeneratoru konteksta izvēlnei."
   },
   "permission_sync_clock": {
     "message": "Atļauj sinhronizēt laiku ar Google."

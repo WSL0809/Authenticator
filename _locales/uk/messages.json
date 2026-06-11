@@ -8,8 +8,16 @@
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Автентифікатор генерує коди двофакторної аутентифікації у вашому браузері.",
+    "message": "VaultOTP - Автентифікатор генерує коди двофакторної аутентифікації у вашому браузері.",
     "description": "Extension Description."
+  },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
   },
   "added": {
     "message": " був доданий.",
@@ -120,10 +128,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Скинути автентифікатор"
+    "message": "VaultOTP - Скинути автентифікатор"
   },
   "delete_all_warning": {
-    "message": "Це призведе до видалення всіх Ваших даних і повного скидання автентифікатора. Ви не зможете відновити втрачені дані! Вам слід розглянути можливість збереження резервної копії перед скиданням автентифікатора."
+    "message": "VaultOTP - Це призведе до видалення всіх Ваших даних і повного скидання автентифікатора. Ви не зможете відновити втрачені дані! Вам слід розглянути можливість збереження резервної копії перед скиданням автентифікатора."
   },
   "security_warning": {
     "message": "Цей пароль буде використовуватися для шифрування ваших облікових записів. Ніхто не зможе допомогти вам, якщо ви забудете пароль.",
@@ -489,7 +497,7 @@
     "message": "Надає доступ лише до запису до буфера обміну для копіювання кодів в буфер обміну, коли ви клацаєте на нього в обліковому записі."
   },
   "permission_context_menus": {
-    "message": "Додає автентифікатор до контекстного меню."
+    "message": "VaultOTP - Додає автентифікатор до контекстного меню."
   },
   "permission_sync_clock": {
     "message": "Дозволяє синхронізувати годинник з Google."

@@ -11,6 +11,14 @@
     "message": "VaultOTP genera codici di verifica a due fattori nel tuo browser.",
     "description": "Extension Description."
   },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
+  },
   "added": {
     "message": " è stato aggiunto.",
     "description": "Added Account."
@@ -120,7 +128,7 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Resetta Autenticatore"
+    "message": "VaultOTP - Resetta Autenticatore"
   },
   "delete_all_warning": {
     "message": "Questo eliminerà tutti i tuoi dati e ripristinerà completamente l'VaultOTP. Non potrai recuperare alcun dato eliminato! Dovresti considerare di salvare un backup, prima di ripristinare l'VaultOTP."
@@ -489,7 +497,7 @@
     "message": "Concedi l'accesso di sola scrittura agli appunti per copiarvi i codici quando clicchi sul profilo."
   },
   "permission_context_menus": {
-    "message": "Aggiungi VaultOTPi al menu contestuale."
+    "message": "Aggiungi VaultOTP al menu contestuale."
   },
   "permission_sync_clock": {
     "message": "Consenti la sincronizzazione dell'orario con Google."

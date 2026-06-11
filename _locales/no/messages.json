@@ -1,6 +1,6 @@
 {
   "extName": {
-    "message": "Autentisering",
+    "message": "VaultOTP",
     "description": "Extension Name."
   },
   "extShortName": {
@@ -10,6 +10,14 @@
   "extDesc": {
     "message": "VaultOTP genererer to-faktor autentiseringskoder i nettleseren din.",
     "description": "Extension Description."
+  },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
   },
   "added": {
     "message": " har blitt lagt til.",
@@ -120,10 +128,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Tilbakestill Authentikator"
+    "message": "VaultOTP - Tilbakestill Authentikator"
   },
   "delete_all_warning": {
-    "message": "Dette vil slette alle dataene dine og alle nullstille autentisering. Du vil ikke kunne gjenopprette noen slettede data! Du bør vurdere å lagre en sikkerhetskopi før du tilbakestiller autentisering."
+    "message": "VaultOTP - Dette vil slette alle dataene dine og alle nullstille autentisering. Du vil ikke kunne gjenopprette noen slettede data! Du bør vurdere å lagre en sikkerhetskopi før du tilbakestiller autentisering."
   },
   "security_warning": {
     "message": "Dette passordet vil bli brukt til å kryptere kontoene dine. Ingen kan hjelpe deg hvis du glemmer passordet.",
@@ -489,7 +497,7 @@
     "message": "Gir skrivetilgang til utklippstavlen for å kopiere koder til utklippstavlen når du klikker på kontoen."
   },
   "permission_context_menus": {
-    "message": "Legger til autentisering i kontekstmenyen."
+    "message": "VaultOTP - Legger til autentisering i kontekstmenyen."
   },
   "permission_sync_clock": {
     "message": "Tillater klokkesynk med Google."

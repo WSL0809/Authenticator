@@ -1,15 +1,23 @@
 {
   "extName": {
-    "message": "Autentificering",
+    "message": "VaultOTP",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Autentificering",
+    "message": "VaultOTP",
     "description": "Extension Short Name."
   },
   "extDesc": {
     "message": "VaultOTP genererer to-faktor autentificeringskoder i din browser.",
     "description": "Extension Description."
+  },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
   },
   "added": {
     "message": " er tilføjet.",
@@ -120,7 +128,7 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Nulstil Autentificering"
+    "message": "VaultOTP - Nulstil Autentificering"
   },
   "delete_all_warning": {
     "message": "Dette vil slette alle dine data og helt nulstille VaultOTP. Du vil ikke være i stand til at gendanne slettede data! Du bør overveje at gemme en sikkerhedskopi, før du nulstiller VaultOTP."

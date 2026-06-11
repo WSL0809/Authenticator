@@ -1,6 +1,6 @@
 {
   "extName": {
-    "message": "Autentikator",
+    "message": "VaultOTP",
     "description": "Extension Name."
   },
   "extShortName": {
@@ -10,6 +10,14 @@
   "extDesc": {
     "message": "VaultOTP menghasilkan kode verifikasi 2 langkah di browser anda.",
     "description": "Extension Description."
+  },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
   },
   "added": {
     "message": " telah ditambahkan.",
@@ -123,7 +131,7 @@
     "message": "Reset VaultOTP"
   },
   "delete_all_warning": {
-    "message": "Tindakan ini akan menghapus semua data dan mereset ulang Autentikator. Anda tidak dapat mengembalikan data yang sudah terhapus! Pastikan anda membuat Backup terlebih dahulu sebelum mereset ulang Authentikator."
+    "message": "VaultOTP - Tindakan ini akan menghapus semua data dan mereset ulang Autentikator. Anda tidak dapat mengembalikan data yang sudah terhapus! Pastikan anda membuat Backup terlebih dahulu sebelum mereset ulang Authentikator."
   },
   "security_warning": {
     "message": "Kata sandi ini akan digunakan untuk mengenkripsi kode rahasia anda. Tidak ada yang dapat membantu anda jikalau anda lupa kata sandi anda.",

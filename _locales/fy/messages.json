@@ -11,6 +11,14 @@
     "message": "VaultOTP generearret 2-stapsferifikaasjekoades yn jo browser.",
     "description": "Extension Description."
   },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
+  },
   "added": {
     "message": " is tafoege.",
     "description": "Added Account."

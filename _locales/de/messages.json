@@ -1,6 +1,6 @@
 {
   "extName": {
-    "message": "Authentifizierung",
+    "message": "VaultOTP",
     "description": "Extension Name."
   },
   "extShortName": {
@@ -10,6 +10,14 @@
   "extDesc": {
     "message": "VaultOTP erzeugt Zwei-Faktor-Authentifizierungscodes in Ihrem Browser.",
     "description": "Extension Description."
+  },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
   },
   "added": {
     "message": " wurde hinzugefügt.",

@@ -1,15 +1,23 @@
 {
   "extName": {
-    "message": "Authentication",
+    "message": "VaultOTP",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Authentication",
+    "message": "VaultOTP",
     "description": "Extension Short Name."
   },
   "extDesc": {
     "message": "VaultOTP สำหรับสร้างรหัสยืนยัน 2 ชั้นบนเบราว์เซอร์",
     "description": "Extension Description."
+  },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
   },
   "added": {
     "message": " ถูกเพิ่มเรียบร้อย",
@@ -120,10 +128,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "ล้างการตั้งค่าเเอพการตรวจสอบสิทธิ์"
+    "message": "VaultOTP - ล้างการตั้งค่าเเอพการตรวจสอบสิทธิ์"
   },
   "delete_all_warning": {
-    "message": "นี้คือการลบข้อมูลทั้งหมดของคุณอย่างถาวร การดำเนินการต่อทั้งหมดจะทำให้คุณสูญเสียข้อมูลเเละไม่สามารถกู้กลับคืนได้ กรุณาระมัดระวังเเละสำรองข้อมูลก่อนการดำเนินการต่อ"
+    "message": "VaultOTP - นี้คือการลบข้อมูลทั้งหมดของคุณอย่างถาวร การดำเนินการต่อทั้งหมดจะทำให้คุณสูญเสียข้อมูลเเละไม่สามารถกู้กลับคืนได้ กรุณาระมัดระวังเเละสำรองข้อมูลก่อนการดำเนินการต่อ"
   },
   "security_warning": {
     "message": "รหัสผ่านนี้จะถูกใช้เพื่อเข้ารหัสบัญชีของคุณ ไม่มีใครสามารถช่วยคุณได้หากคุณลืมรหัสผ่าน.",

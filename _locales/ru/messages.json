@@ -1,15 +1,23 @@
 {
   "extName": {
-    "message": "Аутентификатор",
+    "message": "VaultOTP",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Аутентификатор",
+    "message": "VaultOTP",
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Аутентификатор генерирует коды двухфакторной аутентификации в вашем браузере.",
+    "message": "VaultOTP - Аутентификатор генерирует коды двухфакторной аутентификации в вашем браузере.",
     "description": "Extension Description."
+  },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
   },
   "added": {
     "message": " Был добавлен.",
@@ -120,7 +128,7 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Сбросить ключ идентификации."
+    "message": "VaultOTP - Сбросить ключ идентификации."
   },
   "delete_all_warning": {
     "message": "Это удалит все ваши данные и полностью сбросит VaultOTP. Вы не сможете восстановить любые удаленные данные! Вам следует сохранить резервную копию перед сбросом аутентификатора."
@@ -489,7 +497,7 @@
     "message": "Даёт доступ только для записи в буфер обмена для копирования кодов в буфер обмена, когда вы нажмете на аккаунт."
   },
   "permission_context_menus": {
-    "message": "Добавляет аутентификатор в меню контекста."
+    "message": "VaultOTP - Добавляет аутентификатор в меню контекста."
   },
   "permission_sync_clock": {
     "message": "Позволяет синхронизировать часы с Google."

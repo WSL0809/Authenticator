@@ -1,15 +1,23 @@
 {
   "extName": {
-    "message": "Autentifikator",
+    "message": "VaultOTP",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Autentifikator",
+    "message": "VaultOTP",
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Autentifikator brauzerińizde eki faktorlı autentifikaciya kodların payda etedi.",
+    "message": "VaultOTP - Autentifikator brauzerińizde eki faktorlı autentifikaciya kodların payda etedi.",
     "description": "Extension Description."
+  },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
   },
   "added": {
     "message": " qosıldı.",
@@ -120,10 +128,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Autentifikatordı dáslepki jaģdayına qaytarıw"
+    "message": "VaultOTP - Autentifikatordı dáslepki jaģdayına qaytarıw"
   },
   "delete_all_warning": {
-    "message": "Bul bárshe maģlıwmatlarıńızdı óshirip taslaydı hámde Autentifikator tolıqlay qayta tiklenedi. Siz óshirilgen maǵlıwmatlardı qaytadan tikley almaysız! Autentifikator-dı qayta tiklewden aldın qosımsha qor nusqasın saqlaw tuwralı oylawıńız kerek."
+    "message": "VaultOTP - Bul bárshe maģlıwmatlarıńızdı óshirip taslaydı hámde Autentifikator tolıqlay qayta tiklenedi. Siz óshirilgen maǵlıwmatlardı qaytadan tikley almaysız! Autentifikator-dı qayta tiklewden aldın qosımsha qor nusqasın saqlaw tuwralı oylawıńız kerek."
   },
   "security_warning": {
     "message": "Usı parol esaplarıńızdı shifrlaw ushın qollanıladı. Eger paroldi umıtıp qalsańız hesh kim sizge járdem bere almaydı.",
@@ -489,7 +497,7 @@
     "message": "Esap betin basqanıńızda kodlardı almastırıw buferine nusqalaw ushın tek ģana jazıw ushın buferge ruxsat beredi."
   },
   "permission_context_menus": {
-    "message": "Konteks menyusına Autentifikator qosadı."
+    "message": "VaultOTP - Konteks menyusına Autentifikator qosadı."
   },
   "permission_sync_clock": {
     "message": "Google menen saattı sinxronlaw imkániyatın beredi."

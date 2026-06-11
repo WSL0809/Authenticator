@@ -30,10 +30,10 @@
   "commands": {
     "_execute_action": {},
     "scan-qr": {
-      "description": "Scan a QR code"
+      "description": "__MSG_command_scan_qr__"
     },
     "autofill": {
-      "description": "Autofill the matched code"
+      "description": "__MSG_command_autofill__"
     }
   },
   "options_ui": {

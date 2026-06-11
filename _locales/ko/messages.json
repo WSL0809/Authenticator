@@ -1,15 +1,23 @@
 {
   "extName": {
-    "message": "인증 도구",
+    "message": "VaultOTP",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "인증 도구",
+    "message": "VaultOTP",
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "인증 도구는 브라우저에서 2단계 인증 코드를 생성합니다.",
+    "message": "VaultOTP - 인증 도구는 브라우저에서 2단계 인증 코드를 생성합니다.",
     "description": "Extension Description."
+  },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
   },
   "added": {
     "message": "을(를) 추가했어요.",
@@ -120,10 +128,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "인증 도구 초기화"
+    "message": "VaultOTP - 인증 도구 초기화"
   },
   "delete_all_warning": {
-    "message": "이 작업은 모든 데이터를 삭제하고 인증 도구를 완전히 초기화시킬 거예요. 삭제된 어떠한 데이터도 복구할 수 없게 돼요! 인증 도구 초기화 전 백업을 저장하는 걸 고려해 보세요."
+    "message": "VaultOTP - 이 작업은 모든 데이터를 삭제하고 인증 도구를 완전히 초기화시킬 거예요. 삭제된 어떠한 데이터도 복구할 수 없게 돼요! 인증 도구 초기화 전 백업을 저장하는 걸 고려해 보세요."
   },
   "security_warning": {
     "message": "이 비밀번호는 계정을 암호화시키는 데 사용돼요. 비밀번호를 잊어버리면 아무도 도움을 줄 수 없어요.",
@@ -489,7 +497,7 @@
     "message": "계정을 클릭할 때 클립보드에 코드를 복사해서 클립보드에 쓰기 전용 접근 권한을 줄 수 있도록 해요."
   },
   "permission_context_menus": {
-    "message": "컨텍스트 메뉴에 인증 도구를 추가할 수 있게 해요."
+    "message": "VaultOTP - 컨텍스트 메뉴에 인증 도구를 추가할 수 있게 해요."
   },
   "permission_sync_clock": {
     "message": "Google과 시간 동기화를 허용해요."

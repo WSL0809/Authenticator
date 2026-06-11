@@ -1,15 +1,23 @@
 {
   "extName": {
-    "message": "Authentication",
+    "message": "VaultOTP",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "सत्यापन",
+    "message": "VaultOTP",
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "ऑथेंटिकेटर आपके ब्राउज़र में \"टू-फैक्टर ऑथेंटिकेशन\" कोड जेनरेट करता है।",
+    "message": "VaultOTP - ऑथेंटिकेटर आपके ब्राउज़र में \"टू-फैक्टर ऑथेंटिकेशन\" कोड जेनरेट करता है।",
     "description": "Extension Description."
+  },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
   },
   "added": {
     "message": " जोड़ दिया गया है।",
@@ -120,10 +128,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "प्रमाणक रीसेट करें"
+    "message": "VaultOTP - प्रमाणक रीसेट करें"
   },
   "delete_all_warning": {
-    "message": "यह आपके सभी डेटा को हटा देगा और प्रमाणक को पूरी तरह से रीसेट कर देगा। आप किसी भी हटाए गए डेटा को पुनर्प्राप्त नहीं कर पाएंगे! प्रमाणक को रीसेट करने से पहले आपको एक बैकअप सहेजने पर विचार करना चाहिए।"
+    "message": "VaultOTP - यह आपके सभी डेटा को हटा देगा और प्रमाणक को पूरी तरह से रीसेट कर देगा। आप किसी भी हटाए गए डेटा को पुनर्प्राप्त नहीं कर पाएंगे! प्रमाणक को रीसेट करने से पहले आपको एक बैकअप सहेजने पर विचार करना चाहिए।"
   },
   "security_warning": {
     "message": "इस पासवर्ड का उपयोग आपके खातों को एन्क्रिप्ट करने के लिए किया जाएगा। अगर आप पासवर्ड भूल जाते हैं तो कोई आपकी मदद नहीं कर सकता।",
@@ -489,7 +497,7 @@
     "message": "जब आप खाते पर क्लिक करते हैं तो कोड को क्लिपबोर्ड पर कॉपी करने के लिए क्लिपबोर्ड पर केवल-लिखने की पहुंच प्रदान करता है।"
   },
   "permission_context_menus": {
-    "message": "संदर्भ मेनू में प्रमाणक जोड़ता है।"
+    "message": "VaultOTP - संदर्भ मेनू में प्रमाणक जोड़ता है।"
   },
   "permission_sync_clock": {
     "message": "घड़ी को Google के साथ सिंक करने की अनुमति देता है।"

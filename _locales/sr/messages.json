@@ -1,15 +1,23 @@
 {
   "extName": {
-    "message": "Аутентификатор",
+    "message": "VaultOTP",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Аутентификатор",
+    "message": "VaultOTP",
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Аутентификатор генерише кодове за приступ у два степена.",
+    "message": "VaultOTP - Аутентификатор генерише кодове за приступ у два степена.",
     "description": "Extension Description."
+  },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
   },
   "added": {
     "message": " додато.",
@@ -120,10 +128,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Ресетуј аутентификатор"
+    "message": "VaultOTP - Ресетуј аутентификатор"
   },
   "delete_all_warning": {
-    "message": "Ово че обрисати све ваше податке и потпуно ресетовати Атентификатор. Нећете моћи вратити обрисане податке. Сачувајте копију података прије ресетовања аутентификатора."
+    "message": "VaultOTP - Ово че обрисати све ваше податке и потпуно ресетовати Атентификатор. Нећете моћи вратити обрисане податке. Сачувајте копију података прије ресетовања аутентификатора."
   },
   "security_warning": {
     "message": "Овом ће се лозинком шифрирати ваш налог. Нитко вам неће моћи помоћи ако је заборавите.",

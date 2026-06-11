@@ -1,15 +1,23 @@
 {
   "extName": {
-    "message": "Autentifikuesi",
+    "message": "VaultOTP",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Autentifikuesi",
+    "message": "VaultOTP",
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Autentifikuesi gjeneron kode autentifikimi me 2 faktorë në shletuesin tuaj.",
+    "message": "VaultOTP - Autentifikuesi gjeneron kode autentifikimi me 2 faktorë në shletuesin tuaj.",
     "description": "Extension Description."
+  },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
   },
   "added": {
     "message": " është shtuar.",
@@ -489,7 +497,7 @@
     "message": "يضمن حق الوصول للكتابة فقط إلى الحافظة لنسخ الرموز إلى الحافظة عند النقر فوق الحساب."
   },
   "permission_context_menus": {
-    "message": "يضيف المصادقة إلى قائمة السياق النصى."
+    "message": "VaultOTP - يضيف المصادقة إلى قائمة السياق النصى."
   },
   "permission_sync_clock": {
     "message": "يسمح بمزامنة الساعة مع جوجل."

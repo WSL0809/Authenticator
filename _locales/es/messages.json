@@ -1,15 +1,23 @@
 {
   "extName": {
-    "message": "Autenticador",
+    "message": "VaultOTP",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Autenticación",
+    "message": "VaultOTP",
     "description": "Extension Short Name."
   },
   "extDesc": {
     "message": "VaultOTP genera códigos de autenticación de dos factores en su navegador.",
     "description": "Extension Description."
+  },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
   },
   "added": {
     "message": " ha sido añadido.",
@@ -120,7 +128,7 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Restablecer auntenticador"
+    "message": "VaultOTP - Restablecer auntenticador"
   },
   "delete_all_warning": {
     "message": "Esto eliminará todos tus datos y restablecerá completamente VaultOTP. ¡No podrás recuperar ningún dato eliminado! Deberías considerar guardar una copia de seguridad antes de resetear VaultOTP."

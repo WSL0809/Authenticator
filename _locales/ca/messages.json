@@ -11,6 +11,14 @@
     "message": "VaultOTP genera codis d'autenticació en dos passos al vostre navegador.",
     "description": "Extension Description."
   },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
+  },
   "added": {
     "message": " s'ha afegit.",
     "description": "Added Account."

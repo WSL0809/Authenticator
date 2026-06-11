@@ -1,15 +1,23 @@
 {
   "extName": {
-    "message": "Autentifikatorius",
+    "message": "VaultOTP",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Autentifikatorius",
+    "message": "VaultOTP",
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Autentifikatorius generuoja dviejų veiksnių autentifikavimo kodus naršyklėje.",
+    "message": "VaultOTP - Autentifikatorius generuoja dviejų veiksnių autentifikavimo kodus naršyklėje.",
     "description": "Extension Description."
+  },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
   },
   "added": {
     "message": " buvo pridėtas.",
@@ -120,10 +128,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Iš naujo nustatyti autentifikatorių"
+    "message": "VaultOTP - Iš naujo nustatyti autentifikatorių"
   },
   "delete_all_warning": {
-    "message": "Taip ištrinsite visus duomenis ir visiškai iš naujo nustatysite Autentifikatorių. Negalėsite atkurti jokių ištrintų duomenų! Prieš iš naujo nustatydami Autentifikatorių, turėtumėte išsaugoti atsarginę kopiją."
+    "message": "VaultOTP - Taip ištrinsite visus duomenis ir visiškai iš naujo nustatysite Autentifikatorių. Negalėsite atkurti jokių ištrintų duomenų! Prieš iš naujo nustatydami Autentifikatorių, turėtumėte išsaugoti atsarginę kopiją."
   },
   "security_warning": {
     "message": "Šis slaptažodis bus naudojamas jūsų paskyroms šifruoti. Jei slaptažodį pamiršite, niekas jums nepadės.",
@@ -489,7 +497,7 @@
     "message": "Suteikiama tik rašymo prieiga prie iškarpinės, kad, spustelėjus paskyrą, kodai būtų kopijuojami į iškarpinę."
   },
   "permission_context_menus": {
-    "message": "Į kontekstinį meniu įtraukiamas autentifikatorius."
+    "message": "VaultOTP - Į kontekstinį meniu įtraukiamas autentifikatorius."
   },
   "permission_sync_clock": {
     "message": "Leidžia sinchronizuoti laikrodį su \"Google\"."

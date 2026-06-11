@@ -1,15 +1,23 @@
 {
   "extName": {
-    "message": "Kimlik Doğrulayıcı",
+    "message": "VaultOTP",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Kimlik Doğrulayıcı",
+    "message": "VaultOTP",
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Kimlik Doğrulayıcı, tarayıcınızda iki faktörlü kimlik doğrulama kodları oluşturur.",
+    "message": "VaultOTP - Kimlik Doğrulayıcı, tarayıcınızda iki faktörlü kimlik doğrulama kodları oluşturur.",
     "description": "Extension Description."
+  },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
   },
   "added": {
     "message": " eklendi.",
@@ -120,10 +128,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Kimlik Doğrulayıcıyı sıfırla"
+    "message": "VaultOTP - Kimlik Doğrulayıcıyı sıfırla"
   },
   "delete_all_warning": {
-    "message": "Bu işlem tüm verilerinizi silecek ve Kimlik Doğrulayıcıyı tamamen sıfırlayacaktır. Silinen verileri kurtaramazsınız. Kimlik Doğrulayıcıyı sıfırlamadan önce bir yedekleme kaydedin."
+    "message": "VaultOTP - Bu işlem tüm verilerinizi silecek ve Kimlik Doğrulayıcıyı tamamen sıfırlayacaktır. Silinen verileri kurtaramazsınız. Kimlik Doğrulayıcıyı sıfırlamadan önce bir yedekleme kaydedin."
   },
   "security_warning": {
     "message": "Bu parola hesaplarınızı şifrelemek için kullanılacaktır. Parolayı unutursanız kimse size yardım edemez.",
@@ -489,7 +497,7 @@
     "message": "Hesaba tıkladığınızda kodları panoya kopyalamak için panoya yalnızca yazma erişimi verir."
   },
   "permission_context_menus": {
-    "message": "İçerik menüsüne Kimlik Doğrulayıcıyı ekler."
+    "message": "VaultOTP - İçerik menüsüne Kimlik Doğrulayıcıyı ekler."
   },
   "permission_sync_clock": {
     "message": "Google ile saat eşitlemesine izin verir."

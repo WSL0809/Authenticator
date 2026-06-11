@@ -1,15 +1,23 @@
 {
   "extName": {
-    "message": "Επαληθευτής",
+    "message": "VaultOTP",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Επαληθευτής",
+    "message": "VaultOTP",
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Ο επαληθευτής δημιουργεί κωδικούς ταυτότητας δυο παραγόντων στο πρόγραμμα περιήγησής σας.",
+    "message": "VaultOTP - Ο επαληθευτής δημιουργεί κωδικούς ταυτότητας δυο παραγόντων στο πρόγραμμα περιήγησής σας.",
     "description": "Extension Description."
+  },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
   },
   "added": {
     "message": " έχει προστεθεί.",
@@ -120,10 +128,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Επαναφορά Επαληθευτή"
+    "message": "VaultOTP - Επαναφορά Επαληθευτή"
   },
   "delete_all_warning": {
-    "message": "Αυτό θα διαγράψει όλα σας τα δεδομένα και θα επαναφέρει πλήρως τον Επαληθευτή. Δε θα μπορείτε να ανακτήσετε τυχόν διαγραμμένα δεδομένα, γι' αυτό σας συνιστούμε να δημιουργήσετε ένα αντίγραφο ασφαλείας πριν την επαναφορά."
+    "message": "VaultOTP - Αυτό θα διαγράψει όλα σας τα δεδομένα και θα επαναφέρει πλήρως τον Επαληθευτή. Δε θα μπορείτε να ανακτήσετε τυχόν διαγραμμένα δεδομένα, γι' αυτό σας συνιστούμε να δημιουργήσετε ένα αντίγραφο ασφαλείας πριν την επαναφορά."
   },
   "security_warning": {
     "message": "Αυτός ο κωδικός πρόσβασης θα χρησιμοποιηθεί για την κρυπτογράφηση των λογαριασμών σας. Κανείς δεν μπορεί να σας βοηθήσει σε περίπτωση που τον ξεχάσετε.",
@@ -489,7 +497,7 @@
     "message": "Παραχωρεί πρόσβαση στο πρόχειρο για την αντιγραφή και επικόλληση κωδικών όταν κάνετε κλικ στον αντίστοιχο λογαριασμό."
   },
   "permission_context_menus": {
-    "message": "Προσθέτει τον Επαληθευτή στο μενού περιβάλλοντος."
+    "message": "VaultOTP - Προσθέτει τον Επαληθευτή στο μενού περιβάλλοντος."
   },
   "permission_sync_clock": {
     "message": "Επιτρέπει τον συγχρονισμό ρολογιού με την Google."

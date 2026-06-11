@@ -11,6 +11,14 @@
     "message": "VaultOTP génère des codes d'authentification à deux facteurs dans votre navigateur.",
     "description": "Extension Description."
   },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
+  },
   "added": {
     "message": " a été ajouté.",
     "description": "Added Account."
@@ -120,10 +128,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Réinitialiser Authentificator"
+    "message": "VaultOTP - Réinitialiser Authentificator"
   },
   "delete_all_warning": {
-    "message": "Cela supprimera toutes vos données et réinitialisera complètement Authentificator. Vous ne serez pas en mesure de récupérer des données supprimées ! Vous devriez envisager d'enregistrer une sauvegarde avant de réinitialiser Authentificator."
+    "message": "VaultOTP - Cela supprimera toutes vos données et réinitialisera complètement Authentificator. Vous ne serez pas en mesure de récupérer des données supprimées ! Vous devriez envisager d'enregistrer une sauvegarde avant de réinitialiser Authentificator."
   },
   "security_warning": {
     "message": "Ce mot de passe sera utilisé pour crypter vos comptes. Personne ne peut vous aider si vous oubliez le mot de passe.",

@@ -15,7 +15,8 @@
     "browser-extension"
   ],
   "scripts": {
-    "check": "tsc --noEmit --pretty false && npm run chrome",
+    "check": "npm run check:i18n && tsc --noEmit --pretty false && npm run chrome",
+    "check:i18n": "node scripts/check-i18n.js",
     "compile": "bash scripts/build.sh firefox",
     "dev:chrome": "npm run chrome",
     "package:chrome": "node scripts/package-chrome.js",

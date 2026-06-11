@@ -11,6 +11,14 @@
     "message": "VaultOTP generuje kódy dvoufázového ověření ve Vašem prohlížeči.",
     "description": "Extension Description."
   },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
+  },
   "added": {
     "message": " byl přidán.",
     "description": "Added Account."
@@ -120,10 +128,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Resetovat autentifikátor"
+    "message": "VaultOTP - Resetovat autentifikátor"
   },
   "delete_all_warning": {
-    "message": "Tímto smažete všechna vaše data a kompletně obnovíte autentifikátor. Nebudete moci obnovit žádná odstraněná data! Před resetováním autentifikátoru byste měli zvážit uložení zálohy."
+    "message": "VaultOTP - Tímto smažete všechna vaše data a kompletně obnovíte autentifikátor. Nebudete moci obnovit žádná odstraněná data! Před resetováním autentifikátoru byste měli zvážit uložení zálohy."
   },
   "security_warning": {
     "message": "Toto heslo bude použito k šifrování vašich účtů. Nikdo vám nemůže pomoci, pokud zapomenete heslo.",

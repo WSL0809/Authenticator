@@ -1,15 +1,23 @@
 {
   "extName": {
-    "message": "Autentifikator",
+    "message": "VaultOTP",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Autentifikator",
+    "message": "VaultOTP",
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "Autentifikator generira dvofaktorske autentifikacijske kodove u tvom pregledniku.",
+    "message": "VaultOTP - Autentifikator generira dvofaktorske autentifikacijske kodove u tvom pregledniku.",
     "description": "Extension Description."
+  },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
   },
   "added": {
     "message": " je dodan.",
@@ -120,10 +128,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Resetiraj Autentifikator"
+    "message": "VaultOTP - Resetiraj Autentifikator"
   },
   "delete_all_warning": {
-    "message": "Ovo će izbrisati sve tvoje podatke i potpuno resetirati Autentifikator. Nećeš moći vratiti izbrisane podatke! Spremi sigurnosnu kopiju prije resetiranja Autentifikatora."
+    "message": "VaultOTP - Ovo će izbrisati sve tvoje podatke i potpuno resetirati Autentifikator. Nećeš moći vratiti izbrisane podatke! Spremi sigurnosnu kopiju prije resetiranja Autentifikatora."
   },
   "security_warning": {
     "message": "Ova će se lozinka koristiti za šifriranje tvog računa. Nitko ti neće moći pomoći ako ju zaboraviš.",
@@ -489,7 +497,7 @@
     "message": "Odobrava pristup samo-za-pisanje međuspremniku za kopiranje kodova u međuspremnik kada pritisneš račun."
   },
   "permission_context_menus": {
-    "message": "Dodaje Autentifikator u kontekstni izbornik."
+    "message": "VaultOTP - Dodaje Autentifikator u kontekstni izbornik."
   },
   "permission_sync_clock": {
     "message": "Dozvoljava sinkroniziranje sata s Googleom."

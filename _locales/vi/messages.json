@@ -4,12 +4,20 @@
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Trình xác thực",
+    "message": "VaultOTP",
     "description": "Extension Short Name."
   },
   "extDesc": {
     "message": "VaultOTP tạo mã xác thực hai yếu tố trong trình duyệt của bạn",
     "description": "Extension Description."
+  },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
   },
   "added": {
     "message": " đã được thêm.",

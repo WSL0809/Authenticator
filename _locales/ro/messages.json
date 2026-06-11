@@ -11,6 +11,14 @@
     "message": "VaultOTP generează coduri de verificare pentru al doilea pas în browserul tău.",
     "description": "Extension Description."
   },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
+  },
   "added": {
     "message": " a fost adăugat.",
     "description": "Added Account."
@@ -120,10 +128,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Resetează Autentificator"
+    "message": "VaultOTP - Resetează Autentificator"
   },
   "delete_all_warning": {
-    "message": "Această acțiune va șterge toate datele și va reseta complet Autentificatorul. Nu veți putea recupera datele șterse! Ar fi bine să salvați o copie de rezervă înainte de a reseta autentificatorul."
+    "message": "VaultOTP - Această acțiune va șterge toate datele și va reseta complet Autentificatorul. Nu veți putea recupera datele șterse! Ar fi bine să salvați o copie de rezervă înainte de a reseta autentificatorul."
   },
   "security_warning": {
     "message": "Această parolă va fi utilizată pentru criptarea conturilor tale. Dacă uiți această parolă, datele nu pot fi recuperate.",

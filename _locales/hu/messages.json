@@ -1,15 +1,23 @@
 {
   "extName": {
-    "message": "Hitelesítő",
+    "message": "VaultOTP",
     "description": "Extension Name."
   },
   "extShortName": {
-    "message": "Hitelesítő",
+    "message": "VaultOTP",
     "description": "Extension Short Name."
   },
   "extDesc": {
-    "message": "A Hitelesítő kétlépcsős ellenőrző kódokat generál a böngészőben.",
+    "message": "VaultOTP - A Hitelesítő kétlépcsős ellenőrző kódokat generál a böngészőben.",
     "description": "Extension Description."
+  },
+  "command_scan_qr": {
+    "message": "Scan a QR code",
+    "description": "Command description for scanning a QR code."
+  },
+  "command_autofill": {
+    "message": "Autofill the matched code",
+    "description": "Command description for autofilling the matched code."
   },
   "added": {
     "message": " hozzáadva.",
@@ -120,10 +128,10 @@
     "description": "Message that user is required to acknowledge before clearing all data."
   },
   "delete_all": {
-    "message": "Hitelesítő visszaállítása"
+    "message": "VaultOTP - Hitelesítő visszaállítása"
   },
   "delete_all_warning": {
-    "message": "\nEzzel törli az összes adatot, és teljesen visszaállítja a Hitelesítőt. A törölt adatokat nem fogja tudni visszaállítani! Az VaultOTP alaphelyzetbe állítása előtt fontolóra kell vennie egy biztonsági másolat készítését."
+    "message": "VaultOTP - Ezzel törli az összes adatot, és teljesen visszaállítja a Hitelesítőt. A törölt adatokat nem fogja tudni visszaállítani! Az VaultOTP alaphelyzetbe állítása előtt fontolóra kell vennie egy biztonsági másolat készítését."
   },
   "security_warning": {
     "message": "Ez a jelszó lesz használva a fiókjai titkosításához. Senki sem tud segíteni, ha elfelejti a jelszavát.",
@@ -489,7 +497,7 @@
     "message": "A vágólapon csak írásra jogosító engedélyt biztosít, hogy a kódok a vágólapra kerüljenek a fiókra való kattintáskor."
   },
   "permission_context_menus": {
-    "message": "Hitelesítő hozzáadása tartalomfüggő menühöz."
+    "message": "VaultOTP - Hitelesítő hozzáadása tartalomfüggő menühöz."
   },
   "permission_sync_clock": {
     "message": "Óra szinkronizálás engedélyezése Google által."
