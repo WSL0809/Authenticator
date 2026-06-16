@@ -95,6 +95,11 @@ function showGrayLayout() {
       return;
     };
   }
+  const scan = document.getElementById("__ga_scan__");
+  if (scan) {
+    scan.style.display = "block";
+    scan.style.background = `url('${scanGIF}') no-repeat center`;
+  }
   grayLayout.style.display = "block";
 }
 
@@ -118,7 +123,7 @@ function grayLayoutDown(event: MouseEvent) {
 
   const scan = document.getElementById("__ga_scan__");
   if (scan) {
-    scan.style.background = "transparent";
+    scan.style.display = "none";
   }
   return;
 }
@@ -163,10 +168,8 @@ function grayLayoutUp(event: MouseEvent) {
     return;
   }
 
-  setTimeout(() => {
-    captureBox.style.display = "none";
-    grayLayout.style.display = "none";
-  }, 100);
+  captureBox.style.display = "none";
+  grayLayout.style.display = "none";
 
   if (event.button === 1 || event.button === 2) {
     event.preventDefault();
@@ -192,8 +195,7 @@ function grayLayoutUp(event: MouseEvent) {
       Number(sessionStorage.getItem("captureBoxPositionTop")) - event.clientY
     ) - 1;
 
-  // make sure captureBox and grayLayout is hidden
-  setTimeout(() => {
+  waitForNextPaint().then(() => {
     chrome.runtime.sendMessage({
       action: "getCapture",
       info: {
@@ -203,8 +205,18 @@ function grayLayoutUp(event: MouseEvent) {
         captureBoxHeight,
       },
     });
-  }, 200);
+  });
   return false;
+}
+
+function waitForNextPaint() {
+  return new Promise<void>((resolve) => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        resolve();
+      });
+    });
+  });
 }
 
 async function qrDecode(
