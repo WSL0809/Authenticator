@@ -4,6 +4,8 @@ import jsQR from "jsqr";
 
 import scanGIF from "../images/scan.gif";
 
+const QR_SCAN_GUIDE_SEEN_KEY = "qrScanGuideSeen";
+
 if (!document.getElementById("__ga_grayLayout__")) {
   chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     switch (message.action) {
@@ -66,7 +68,7 @@ if (!document.getElementById("__ga_grayLayout__")) {
 sessionStorage.setItem("captureBoxPositionLeft", "0");
 sessionStorage.setItem("captureBoxPositionTop", "0");
 
-function showGrayLayout() {
+async function showGrayLayout() {
   let grayLayout = document.getElementById("__ga_grayLayout__");
   let qrCanvas = document.getElementById("__ga_qrCanvas__");
   if (!grayLayout) {
@@ -97,10 +99,23 @@ function showGrayLayout() {
   }
   const scan = document.getElementById("__ga_scan__");
   if (scan) {
-    scan.style.display = "block";
-    scan.style.background = `url('${scanGIF}') no-repeat center`;
+    const shouldShowGuide = await shouldShowQrScanGuide();
+    scan.style.display = shouldShowGuide ? "block" : "none";
+    scan.style.background = shouldShowGuide
+      ? `url('${scanGIF}') no-repeat center`
+      : "transparent";
   }
   grayLayout.style.display = "block";
+}
+
+async function shouldShowQrScanGuide() {
+  const items = await chrome.storage.local.get(QR_SCAN_GUIDE_SEEN_KEY);
+  if (items[QR_SCAN_GUIDE_SEEN_KEY]) {
+    return false;
+  }
+
+  await chrome.storage.local.set({ [QR_SCAN_GUIDE_SEEN_KEY]: true });
+  return true;
 }
 
 function grayLayoutDown(event: MouseEvent) {
