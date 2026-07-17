@@ -15,6 +15,9 @@ import { isChrome, isFirefox } from "./browser";
 import { UserSettings } from "./models/settings";
 
 let contentTab: chrome.tabs.Tab | undefined;
+const contextMenuId = "otpContextMenu";
+let contextMenuClickListenerRegistered = false;
+let contextMenuUpdatePromise: Promise<void> = Promise.resolve();
 
 chrome.runtime.onMessage.addListener(async (message, sender) => {
   await UserSettings.updateItems();
@@ -50,7 +53,7 @@ chrome.runtime.onMessage.addListener(async (message, sender) => {
   } else if (message.action === "updateContentTab") {
     contentTab = message.data;
   } else if (message.action === "updateContextMenu") {
-    updateContextMenu();
+    await updateContextMenu();
   }
 
   // https://stackoverflow.com/a/56483156
@@ -518,51 +521,139 @@ async function setAutolock() {
   }
 }
 
-async function updateContextMenu() {
-  chrome.permissions.contains(
-    {
-      permissions: ["contextMenus"],
-    },
-    (result) => {
-      if (result) {
-        if (UserSettings.items.enableContextMenu === true) {
-          chrome.contextMenus.removeAll();
-          chrome.contextMenus.create({
-            id: "otpContextMenu",
-            title: chrome.i18n.getMessage("extName"),
-            contexts: ["all"],
-          });
-          chrome.contextMenus.onClicked.addListener((info, tab) => {
-            let popupUrl = "view/popup.html?popup=true";
-            if (tab && tab.url && tab.title) {
-              popupUrl +=
-                "&url=" +
-                encodeURIComponent(tab.url) +
-                "&title=" +
-                encodeURIComponent(tab.title);
-            }
-            let windowType;
-            if (isFirefox) {
-              windowType = "detached_panel";
-            } else {
-              windowType = "panel";
-            }
-            chrome.windows.create({
-              url: chrome.runtime.getURL(popupUrl),
-              type: windowType as chrome.windows.createTypeEnum,
-              height: 400,
-              width: 320,
-            });
+function updateContextMenu() {
+  contextMenuUpdatePromise = contextMenuUpdatePromise
+    .then(synchronizeContextMenu, synchronizeContextMenu)
+    .catch((error) => {
+      console.error("Failed to update context menu", error);
+    });
 
-            // https://stackoverflow.com/a/56483156
-            return true;
-          });
-        } else {
-          chrome.contextMenus.removeAll();
-        }
-      }
-    }
-  );
+  return contextMenuUpdatePromise;
 }
 
-updateContextMenu();
+async function synchronizeContextMenu() {
+  await UserSettings.updateItems();
+
+  const hasPermission = await chrome.permissions.contains({
+    permissions: ["contextMenus"],
+  });
+  if (!hasPermission) {
+    return;
+  }
+
+  registerContextMenuClickListener();
+  await removeAllContextMenus();
+
+  if (UserSettings.items.enableContextMenu === true) {
+    await createContextMenu();
+  }
+}
+
+function registerContextMenuClickListener() {
+  if (contextMenuClickListenerRegistered) {
+    return;
+  }
+
+  chrome.contextMenus.onClicked.addListener((info, tab) => {
+    if (info.menuItemId !== contextMenuId) {
+      return;
+    }
+
+    let popupUrl = "view/popup.html?popup=true";
+    if (tab && tab.url && tab.title) {
+      popupUrl +=
+        "&url=" +
+        encodeURIComponent(tab.url) +
+        "&title=" +
+        encodeURIComponent(tab.title);
+    }
+    const windowType = isFirefox ? "detached_panel" : "panel";
+    chrome.windows.create({
+      url: chrome.runtime.getURL(popupUrl),
+      type: windowType as chrome.windows.createTypeEnum,
+      height: 400,
+      width: 320,
+    });
+  });
+  contextMenuClickListenerRegistered = true;
+}
+
+function removeAllContextMenus() {
+  return new Promise<void>((resolve, reject) => {
+    chrome.contextMenus.removeAll(() => {
+      const error = chrome.runtime.lastError;
+      if (error) {
+        reject(new Error(error.message));
+        return;
+      }
+      resolve();
+    });
+  });
+}
+
+function createContextMenu() {
+  return new Promise<void>((resolve, reject) => {
+    chrome.contextMenus.create(
+      {
+        id: contextMenuId,
+        title: chrome.i18n.getMessage("extName"),
+        contexts: ["all"],
+      },
+      () => {
+        const error = chrome.runtime.lastError;
+        if (error) {
+          reject(new Error(error.message));
+          return;
+        }
+        resolve();
+      }
+    );
+  });
+}
+
+chrome.storage.onChanged.addListener((changes) => {
+  const settingsChange = changes.UserSettings;
+  if (!settingsChange) {
+    return;
+  }
+
+  const oldSettings = settingsChange.oldValue as
+    | {
+        enableContextMenu?: boolean;
+        storageLocation?: string;
+      }
+    | undefined;
+  const newSettings = settingsChange.newValue as
+    | {
+        enableContextMenu?: boolean;
+        storageLocation?: string;
+      }
+    | undefined;
+
+  if (
+    oldSettings?.enableContextMenu !== newSettings?.enableContextMenu ||
+    oldSettings?.storageLocation !== newSettings?.storageLocation
+  ) {
+    void updateContextMenu();
+  }
+});
+
+chrome.permissions.onAdded.addListener((permissions) => {
+  if (permissions.permissions?.includes("contextMenus")) {
+    void updateContextMenu();
+  }
+});
+
+chrome.permissions.onRemoved.addListener((permissions) => {
+  if (permissions.permissions?.includes("contextMenus")) {
+    void updateContextMenu();
+  }
+});
+
+// Event listeners must be registered synchronously when a Manifest V3 service
+// worker starts so the browser can dispatch the event that woke it.
+if (chrome.contextMenus) {
+  registerContextMenuClickListener();
+}
+
+void updateContextMenu();

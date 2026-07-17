@@ -14,6 +14,7 @@ export class Menu implements Module {
       feedbackURL,
       passwordPolicy,
       passwordPolicyHint,
+      contextMenuPermission,
     ] = await Promise.all([
       ManagedStorage.get("disableBackup", false),
       ManagedStorage.get("disableExport", false),
@@ -23,6 +24,11 @@ export class Menu implements Module {
       ManagedStorage.get<string>("feedbackURL"),
       ManagedStorage.get<string>("passwordPolicy"),
       ManagedStorage.get<string>("passwordPolicyHint"),
+      chrome.permissions
+        .contains({
+          permissions: ["contextMenus"],
+        })
+        .catch(() => false),
     ]);
 
     const menuState = {
@@ -31,7 +37,9 @@ export class Menu implements Module {
         zoom: Number(UserSettings.items.zoom) || 100,
         useAutofill: UserSettings.items.autofill === true,
         smartFilter: UserSettings.items.smartFilter === true,
-        enableContextMenu: UserSettings.items.enableContextMenu === true,
+        enableContextMenu:
+          UserSettings.items.enableContextMenu === true &&
+          contextMenuPermission === true,
         theme: UserSettings.items.theme || (isSafari ? "flat" : "normal"),
         autolock: Number(UserSettings.items.autolock) || 30,
         backupDisabled,

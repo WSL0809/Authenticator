@@ -36,7 +36,7 @@
       <a-toggle-input
         :label="i18n.enable_context_menu"
         v-model="enableContextMenu"
-        @change="requireContextMenuPermission()"
+        @change="requireContextMenuPermission"
         v-if="isSupported"
       />
     </section>
@@ -187,21 +187,27 @@ export default defineComponent({
           this.$store.commit("currentView/changeView", "PreferencesPage");
         };
     },
-    requireContextMenuPermission() {
-      chrome.permissions.request(
-        {
-          permissions: ["contextMenus"],
-        },
-        (granted) => {
-          if (!granted) {
-            this.enableContextMenu = false;
-            return;
-          }
-          chrome.runtime.sendMessage({
-            action: "updateContextMenu",
+    async requireContextMenuPermission(enableContextMenu: boolean) {
+      if (enableContextMenu) {
+        let granted = false;
+        try {
+          granted = await chrome.permissions.request({
+            permissions: ["contextMenus"],
           });
+        } catch (error) {
+          console.error("Failed to request context menu permission", error);
         }
-      );
+        if (!granted) {
+          this.enableContextMenu = false;
+        }
+      }
+
+      // The mutation starts this write without awaiting it. Ensure the setting
+      // is persisted before asking the background worker to read it.
+      await UserSettings.commitItems();
+      chrome.runtime.sendMessage({
+        action: "updateContextMenu",
+      });
     },
   },
 });
