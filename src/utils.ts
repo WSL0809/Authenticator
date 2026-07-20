@@ -1,5 +1,6 @@
+import { getDomainWithoutSuffix } from "tldts";
+
 export async function getSiteName() {
-  const tab = await getCurrentTab();
   const query = new URLSearchParams(document.location.search.substring(1));
 
   let title: string | null;
@@ -7,65 +8,78 @@ export async function getSiteName() {
   const titleFromQuery = query.get("title");
   const urlFromQuery = query.get("url");
 
-  if (titleFromQuery && urlFromQuery) {
-    title = decodeURIComponent(titleFromQuery);
-    url = decodeURIComponent(urlFromQuery);
+  if (urlFromQuery !== null) {
+    // URLSearchParams already decodes query values. Decoding a second time
+    // breaks valid titles and URLs containing literal percent characters.
+    title = titleFromQuery;
+    url = urlFromQuery;
   } else {
+    const tab = await getCurrentTab();
     if (!tab) {
       return [null, null];
     }
 
-    title = tab.title?.replace(/[^a-z0-9]/gi, "").toLowerCase() ?? null;
+    title = tab.title ?? null;
     url = tab.url ?? null;
   }
 
+  return getSiteIdentity(title, url);
+}
+
+export function getSiteIdentity(title: string | null, url: string | null) {
+  const normalizedTitle = title ? normalizeWords(title) : null;
   if (!url) {
-    return [title, null];
+    return [normalizedTitle, null, null];
   }
 
-  const urlParser = new URL(url);
-  const hostname = urlParser.hostname; // it's always lower case
-
-  // try to parse name from hostname
-  // i.e. hostname is www.example.com
-  // name should be example
-  let nameFromDomain = "";
-
-  // ip address
-  if (/^\d+\.\d+\.\d+\.\d+$/.test(hostname)) {
-    nameFromDomain = hostname;
+  let urlParser: URL;
+  try {
+    urlParser = new URL(url);
+  } catch {
+    return [normalizedTitle, null, null];
   }
 
-  // local network
-  if (hostname.indexOf(".") === -1) {
-    nameFromDomain = hostname;
+  const hostname = urlParser.hostname.toLowerCase().replace(/\.$/, "");
+  if (
+    !hostname ||
+    (urlParser.protocol !== "http:" && urlParser.protocol !== "https:")
+  ) {
+    return [normalizedTitle, null, hostname || null];
   }
 
-  const hostLevelUnits = hostname.split(".");
+  const domainWithoutSuffix = getDomainWithoutSuffix(hostname, {
+    allowPrivateDomains: true,
+  });
+  const nameFromDomain = normalizeCompact(domainWithoutSuffix || hostname);
 
-  if (hostLevelUnits.length === 2) {
-    nameFromDomain = hostLevelUnits[0];
-  }
+  return [normalizedTitle, nameFromDomain || null, hostname];
+}
 
-  // www.example.com
-  // example.com.cn
-  if (hostLevelUnits.length > 2) {
-    // example.com.cn
-    if (
-      ["com", "net", "org", "edu", "gov", "co"].indexOf(
-        hostLevelUnits[hostLevelUnits.length - 2]
-      ) !== -1
-    ) {
-      nameFromDomain = hostLevelUnits[hostLevelUnits.length - 3];
-    } else {
-      // www.example.com
-      nameFromDomain = hostLevelUnits[hostLevelUnits.length - 2];
+export async function getPopoutUrl() {
+  const currentQuery = new URLSearchParams(
+    document.location.search.substring(1)
+  );
+  let title = currentQuery.get("title");
+  let url = currentQuery.get("url");
+
+  if (!url) {
+    const tab = await getCurrentTab();
+    const extensionUrl = chrome.runtime.getURL("");
+    if (tab?.url && !tab.url.startsWith(extensionUrl)) {
+      title = tab.title ?? null;
+      url = tab.url;
     }
   }
 
-  nameFromDomain = nameFromDomain.replace(/-/g, "").toLowerCase();
+  const popupQuery = new URLSearchParams({ popup: "true" });
+  if (url) {
+    popupQuery.set("url", url);
+    if (title) {
+      popupQuery.set("title", title);
+    }
+  }
 
-  return [title, nameFromDomain, hostname];
+  return `view/popup.html?${popupQuery.toString()}`;
 }
 
 export function getMatchedEntries(
@@ -107,8 +121,8 @@ function isMatchedEntry(
     return false;
   }
 
-  const issuerHostMatches = entry.issuer.split("::");
-  const issuer = issuerHostMatches[0].replace(/[^0-9a-z]/gi, "").toLowerCase();
+  const [issuerName, explicitHost] = entry.issuer.split("::", 2);
+  const issuer = normalizeCompact(issuerName);
 
   if (!issuer) {
     return false;
@@ -118,22 +132,94 @@ function isMatchedEntry(
   const siteNameFromHost = siteName[1] || "";
   const siteHost = siteName[2] || "";
 
-  if (issuerHostMatches.length > 1) {
-    if (siteHost && siteHost.indexOf(issuerHostMatches[1]) !== -1) {
-      return true;
-    }
+  if (explicitHost?.trim()) {
+    return isExplicitHostMatch(siteHost, explicitHost);
   }
-  // site title should be more detailed
-  // so we use siteTitle.indexOf(issuer)
-  if (siteTitle && siteTitle.indexOf(issuer) !== -1) {
+
+  if (siteNameFromHost && isBrandMatch(issuer, siteNameFromHost)) {
     return true;
   }
 
-  if (siteNameFromHost && issuer.indexOf(siteNameFromHost) !== -1) {
+  if (siteTitle && isTitleMatch(siteTitle, issuerName)) {
     return true;
   }
 
   return false;
+}
+
+function normalizeWords(value: string) {
+  return value
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, " ")
+    .trim();
+}
+
+function normalizeCompact(value: string) {
+  return normalizeWords(value).replace(/\s/g, "");
+}
+
+function isBrandMatch(issuer: string, domainName: string) {
+  const domain = normalizeCompact(domainName);
+  if (!domain) {
+    return false;
+  }
+
+  if (issuer === domain) {
+    return true;
+  }
+
+  // Prefix matching covers common names such as "Microsoft" /
+  // "microsoftonline" and "Amazon Web Services" / "amazon". Requiring a
+  // meaningful length prevents short issuer names from matching by accident.
+  return (
+    Math.min(issuer.length, domain.length) >= 4 &&
+    (issuer.startsWith(domain) || domain.startsWith(issuer))
+  );
+}
+
+function isTitleMatch(siteTitle: string, issuerName: string) {
+  const title = normalizeWords(siteTitle);
+  const issuer = normalizeWords(issuerName);
+  if (!title || !issuer || normalizeCompact(issuer).length < 3) {
+    return false;
+  }
+
+  return ` ${title} `.includes(` ${issuer} `);
+}
+
+function isExplicitHostMatch(siteHost: string, explicitHost: string) {
+  if (!siteHost) {
+    return false;
+  }
+
+  const expectedHost = parseExplicitHost(explicitHost);
+  if (!expectedHost) {
+    return false;
+  }
+
+  if (!expectedHost.includes(".")) {
+    return siteHost.split(".").includes(expectedHost);
+  }
+
+  return siteHost === expectedHost || siteHost.endsWith(`.${expectedHost}`);
+}
+
+function parseExplicitHost(value: string) {
+  const host = value.trim().replace(/^\*\./, "");
+  if (!host) {
+    return "";
+  }
+
+  try {
+    const url = new URL(
+      host.includes("://") ? host : `https://${host.toLowerCase()}`
+    );
+    return url.hostname.toLowerCase().replace(/\.$/, "");
+  } catch {
+    return "";
+  }
 }
 
 export async function getCurrentTab() {

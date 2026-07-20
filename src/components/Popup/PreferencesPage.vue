@@ -64,6 +64,7 @@
 import { defineComponent } from "vue";
 import { isFirefox, isSafari } from "../../browser";
 import { UserSettings } from "../../models/settings";
+import { getPopoutUrl } from "../../utils";
 
 export default defineComponent({
   computed: {
@@ -160,7 +161,7 @@ export default defineComponent({
     });
   },
   methods: {
-    popOut() {
+    async popOut() {
       let windowType;
       if (isFirefox) {
         windowType = "detached_panel";
@@ -168,7 +169,7 @@ export default defineComponent({
         windowType = "panel";
       }
       chrome.windows.create({
-        url: chrome.runtime.getURL("view/popup.html?popup=true"),
+        url: chrome.runtime.getURL(await getPopoutUrl()),
         type: windowType as chrome.windows.createTypeEnum,
         height: window.innerHeight,
         width: window.innerWidth,

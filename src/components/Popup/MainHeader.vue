@@ -76,7 +76,11 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { mapState } from "vuex";
-import { getCurrentTab, okToInjectContentScript } from "../../utils";
+import {
+  getCurrentTab,
+  getPopoutUrl,
+  okToInjectContentScript,
+} from "../../utils";
 
 // Icons
 import IconCog from "../../../svg/cog.svg";
@@ -107,7 +111,7 @@ export default defineComponent({
       const params = new URLSearchParams(document.location.search.substring(1));
       return params.get("popup");
     },
-    popOut() {
+    async popOut() {
       let windowType;
       if (isFirefox) {
         windowType = "detached_panel";
@@ -115,7 +119,7 @@ export default defineComponent({
         windowType = "panel";
       }
       chrome.windows.create({
-        url: chrome.runtime.getURL("view/popup.html?popup=true"),
+        url: chrome.runtime.getURL(await getPopoutUrl()),
         type: windowType as chrome.windows.createTypeEnum,
         height: window.innerHeight,
         width: window.innerWidth,
